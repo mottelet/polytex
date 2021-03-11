@@ -83,8 +83,5 @@
 
     Nouveautés de la 2.55 : nouvelle option de style "corrige", qui permet d'obtenir un document contenant les exercices de cours avec leurs solutions ou aides. Voir les autres détails dans le fichier Readme.txt.
 
-    Unix/Linux/MacOS/Windows
-
-
-    Dernière mise à jour : Jeu 25 sep 2020 12:31:00 CEST 
+    Unix/Linux/MacOS/Windows : <https://github.com/mottelet/polytex/tree/main/distributions/autres>
 
