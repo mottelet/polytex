@@ -14,12 +14,10 @@ Stéphane Mottelet (UTC) : stephane dot mottelet at utc dot fr
 
 PolyTeX est actuellement maintenu par le dernier auteur de la liste !
 
-Pour voir quelques ecrans de présentation de PolyTeX, cliquer ici.
-
+Pour voir quelques slides de présentation de PolyTeX, cliquer [ici](https://github.com/mottelet/polytex/blob/main/PolyTeX/presentation-polytex/presentation.pdf)
 
 # Comment fonctionne PolyTeX ?
  
-
 Pas de mystère ! Un document PolyTeX est issu d'un fichier source utilisant une classe
 LaTeX particulière : polytex.cls.
 
@@ -37,13 +35,12 @@ Voici un autre exemple intégrant du son et de la video (l'archive est à décom
 # Documentation
  
 Manuel de PolyTeX (1.5 mis à pour la version 2.2).
-Version ecran : Manuel-ecran.pdf
-Version papier : Manuel.ps
+Version ecran : [Manuel-ecran.pdf](https://github.com/mottelet/polytex/blob/main/PolyTeX/doc/Manuel-ecran.pdf)
+Version papier : [Manuel.pdf](https://github.com/mottelet/polytex/blob/main/PolyTeX/doc/Manuel.pdf)
 Ce manuel est assez ancien et ne fait pas état de nouvelles possibilité de PolyTeX.
 
 Un tutoriel écrit par Johan Millaud
-Version ecran : Installation et prise en main de PolyTeX
-
+Version ecran : [Installation et prise en main de PolyTeX](http://www.iutenligne.net/ressources/installation-et-prise-en-main-de-polytex.html)
 
 # Plate-forme supportées
 
@@ -66,7 +63,7 @@ Projets en cours,  Appel à bonnes volontés :
 
 Le projet PolyTeXML (environnement XML au dessus de PolyTeX) est toujours à un stade expérimental. Une bonne nouvelle est que l'éditeur XML epcedit est devenu gratuit (mais pas encore open source) (screenshot)
 
- Ecriture de nouveaux "thèmes" : la structure actuelle de PolyTeX permet de développer assez rapidement de nouveaux "thèmes" graphiques. Les contributions extériereures sont fortement encouragées !
+Ecriture de nouveaux "thèmes" : la structure actuelle de PolyTeX permet de développer assez rapidement de nouveaux "thèmes" graphiques. Les contributions extériereures sont fortement encouragées !
 
 # Téléchargement
      
