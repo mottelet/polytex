@@ -1,0 +1,2177 @@
+\documentclass[vanilia,final,12pt,propre]{polytex}
+
+\newcommand{\polytex}{Poly\TeX}
+\newcommand{\oztex}{Oz\TeX}
+\newcommand{\bibtex}{Bib\TeX}
+\newcommand{\pdflatex}{pdf\LaTeX}
+
+\usepackage{newcent}
+
+\begin{document}
+
+\titrecours
+{Manuel d'utilisation de la chaîne éditoriale \polytex\ v1.5}
+{Version complète pour l'écriture multisupport d'un cours imprimé, d'un
+cours électronique, d'un cours sur transparent.
+}
+{Bruno BACHIMONT, Nicolas SALZMANN, Stéphane MOTTELET}
+{Université de Technologie de Compiègne}
+{Janvier 2000}
+
+\unchapitre{Présentation}
+
+\unesection{Survol général du système}
+
+\begin{ungrain}[chaineEdition]
+{PolyTeX, un environnement éditorial}
+{Chaîne d'édition}
+
+\begin{renvois}
+\courscorrelat{installEditeur,installationLaTeX,compilationCours}
+\end{renvois}
+
+\polytex est une chaîne éditoriale de production permettant de produire des
+cours matérialisés sur des supports électroniques (écran) ou physiques
+(papier). La chaîne se constitue de :
+\begin{itemize}
+\item un éditeur de texte, qui peut être quelconque, permettant d'écrire un
+  texte ASCII ;
+
+  l'éditeur de texte n'est pas un traitement de texte : le texte édité n'est
+  pas formaté ; en revanche, il peut être structuré en utilisant des
+  marqueurs structurels (par exemple, des tags SGML) ; dans \polytex, le
+  texte est saisi sous la forme de texte encadré par des balises appelées
+  \emph{environnements} ; les environnements sont paramétrés par des
+  arguments ; le marquage ou balisage du texte par les environnements et la
+  déclaration de leurs arguments correspondent à la structuration du texte ;
+
+\item un processeur de texte, \LaTeX\ ou \pdflatex, compile le texte édité et produit un fichier
+au format DVI (DeVice Independant) ou PDF (Portable
+  Document Format); ces deux processeurs
+  utilisent un fichier de paramétrage, le style \emph{PolyTeX}, pour
+  interpréter les instructions ayant permis de saisir le texte et produire un
+  document électronique;
+
+  le style comprend plusieurs options selon que l'on désire une
+  version imprimée ou électronique, un polycopié ou des transparents,
+  une version finale ou une version intermédiaire pour la mise au
+  point du texte et de sa mise en forme matérielle ; \polytex\ propose
+  par défaut de concevoir un polycopié électronique en version finale
+   ;
+
+  il faut donc distinguer trois axes ou dimensions pour la conception
+  d'un cours selon \polytex : la dimension du support, qui comprend
+  deux valeurs, écran ou papier ; la dimension de la réception
+  pédagogique, qui comprend deux valeurs, le polycopié et les
+  transparents ; la dimension de l'achèvement, qui comprend deux
+  valeurs, selon que l'on a une version finale ou intermédiaire ; ces
+  valeurs n'épuisent pas le champ de chaque dimension et sont
+  susceptibles de s'enrichir à l'avenir.
+
+  le principe essentiel est que le document produit est différent
+  selon les options adoptées, les contraintes de lectures étant différentes
+  en fonction du support, de la dimension pédagogique, de l'achèvement
+  du cours.
+
+ \item Un outil de visualisation. Le fichier PDF peut \^etre lu grâce à AcrobatReader
+ en exploitant les fonctionnalités de navigation proposées par le style \emph{PolyTeX}; Cependant,
+  durant la phase de mise au point on préfèrera visualiser le fichier DVI. Dans le cas d'une lecture sur le papier, il suffit d'imprimer le
+  texte construit à travers l'option \emph{impression} à partir
+  d'AcrobatReader, ou bien d'imprimer un fichier \emph{PostScript}
+  produit à partir du fichier DVI.
+\end{itemize}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Se procurer PolyTeX}{Site PolyTeX}
+
+\polytex\ évolue fréquemment. De plus, il est déjà mis en \oe uvre à
+l'UTC sur des polycopiés de cours pour des disciplines variées (mathématiques, physique,
+chimie, langues).
+
+Le site de référence pour trouver les versions à jour de \polytex\ est le
+suivant :
+
+\begin{center}
+{\normalsize
+\verb|http://www.dma.utc.fr/PolyTeX/|
+}
+\end{center}
+\end{ungrain}
+
+\unesection{Genèse historique}
+
+\begin{ungrain}[projetsPedagogiques]
+{Les projets pédagogiques}
+{Projets pédagogiques}
+\begin{renvois}
+\courscorrelat{chartePedagogique}
+\coursdocument{Doc1}
+\end{renvois}
+
+\polytex\ est une réponse à deux projets, DICIT et Télémaque.
+
+DICIT est un projet de formation continue en rédaction et documentation
+technique mobilisant les NTIC pour mettre en \oe uvre une formation à
+distance qui ne soit pas une formation par correspondance : dans DICIT, les
+NTIC conservent le contact direct entre enseignants et apprenants malgré les
+distances physiques les séparant. DICIT veut élaborer
+\coursindex{l'enseignement en présentiel virtuel}{Enseignement présentiel
+  virtuel}.
+
+DICIT doit pouvoir disposer de cours électroniques pouvant être téléchargés
+pour être consultés et/ou imprimés pour un travail local.
+
+Télémaque est une projet d'environnement éditorial de production de
+cours. La production s'effectue à partir de ressources pédagogiques selon
+des normes de structuration logique fixées par une charte pédagogique.
+Les ressources pédagoqiques sont des modules autonomes pouvant être
+(ré)utilisés pour constituer de nouveaux cours. Ces modules sont structurés
+logiquement selon la charte. La charte spécifie donc deux types de
+structuration :
+\begin{itemize}
+\item la structration des modules ;
+\item la structuration des cours en modules ;
+\end{itemize}
+
+\polytex\ est un environnement éditorial élémentaire permettant d'élaborer
+et de tester les concepts de charte pédagogique, structuration logique,
+etc., qui sont à la base du projet.
+\end{ungrain}
+
+\begin{ungrain}
+{Quick and Dirty}
+{Quick and Dirty}
+
+Dans la mesure où les projets DICIT et Télémaque sont fortement innovants
+dans leur conception, le recul manque pour effectuer les choix techniques et
+pédagogiques qu'ils impliquent.
+
+\polytex\ est une approche reposant sur des outils standards, gratuits pour
+la plupart (Alpha, \LaTeX) ou peu onéreux (Acrobat). Outre son coût modique
+voire nul, \polytex\ a pu être mis au point rapidement (environ 40 jours de
+programmation et de test). Il s'agit donc d'une approche Quick.
+
+\polytex\ n'offre pas toutes les fonctionnalités que l'on pourrait exiger
+d'un système de ce type. Par ailleurs, \polytex\ n'est qu'une chaîne
+d'édition et de traitement, il ne prend pas en charge la gestion et la
+cohérence des textes produits. A ce titre, \polytex\ est dirty.
+
+\polytex, en adoptant une approche où le texte est saisi en étant balisé par
+des instructions \LaTeX, permet de tester une approche où le travail
+d'édition est un travail de rédaction et de structuration, et non de mise en
+forme. On demande aux auteurs d'écrire, pas de formater. En particulier, si
+les choix techniques évoluent ou se modifient, toute la structuration
+effectuée reste acquise : objectivée par le format des instructions
+proposées par \polytex, elle est aisée à convertir dans un autre format de
+structuration comme SGML.
+
+\polytex\ ne fait que rétablir la distinction traditionnelle des métiers où
+les auteurs écrivent, composent et structurent, et les typographes et
+imprimeurs éditent et formatent. Cette séparation semble salutaire d'un
+point de vue méthodologique puisqu'il n'est pas raisonnable de demander à un
+auteur de maîtriser les techniques et notions de mise en forme
+typographiques et à un typographe, imprimeur ou éditeur, de maîtriser les
+contenus. L'originalité que permet l'approche numérique est que chaque
+auteur dispose de la chaîne éditoriale complète  et que les choix concernant
+la structuration de la rédaction et la mise en forme matérielle sont
+objectivés d'une part dans les instructions de \polytex\ et d'autre part
+dans leur interprétation pour la mise en forme matérielle du texte.
+
+\end{ungrain}
+
+\unchapitre{\'Ecrire}
+
+\unesection{La charte pédagogique}
+
+\begin{ungrain}[chartePedagogique]
+{La charte pédagogique et autres chartes associées}
+{Charte pédagogique}
+\begin{renvois}
+\courscorrelat{charteDeDiffusion,charteAppropriation,projetsPedagogiques}
+\end{renvois}
+
+La charte pédagogique est une norme prescrivant :
+\begin{itemize}
+\item les règles qu'il faut respecter lors de la conception et de la
+  rédaction d'un support de cours ; il s'agit alors d'une charte de
+  structuration ;
+\item les règles qu'il faut mettre en \oe uvre lors d'une interaction
+  pédagogique entre enseignants et apprenants ; l'interaction est rendue
+  possible et se fonde sur les matériaux pédagogiques conçus dans le cadre
+  de la charte de structuration ; ce second ensemble de règles constitue la
+  charte d'interaction ;
+\end{itemize}
+
+Une charte de structuration peut s'objectiver sous la forme d'une norme de
+structuration documentaire qui spécifie comment organiser le matériau
+documentaire du cours. En fonction des usages visés, la charte spécifie des
+grammaires de document dont le respect assure un standard de qualité et
+d'homogénéité des cours.
+
+Par conséquent, la \coursindex{charte de structuration}
+{Charte/structuration} détermine comment structurer un document selon des
+règles éditoriales motivées par la visée pédagogique. La \coursindex{charte
+  d'interaction}{Charte/interaction} détermine comment le support participe
+à l'économie d'un cours conçu comme un processus d'individuation
+individuelle et collective d'enseignants et d'apprenants.
+
+Une chaîne éditoriale comme \polytex\ ne prend en charge explicitement que
+la charte de structuration. Mais les deux chartes d'interaction et de
+structuration ne sauraient être indépendantes : la structure d'un document
+induit des parcours de lecture et d'appropriation et détermine donc un type
+d'interaction pédagogique ; l'interaction pédagogique repose sur la
+mobilisation d'outils dont la structure est déterminée par les besoins de
+l'interaction. La distinction entre ces deux chartes n'est donc que
+méthodologique, et non ontologique.
+
+La charte pédagogique est l'instrument permettant à une institution
+universitaire de penser sa politique du savoir. Une université est un lieu
+du savoir, en d'autres termes le lieu où le savoir trouve la
+légitimité. C'est cette légitimité que viennent chercher les autres acteurs
+comme les politiques ou les industriels quand ils viennent chercher de
+nouveaux concepts pour penser et réaliser leurs actions. L'université est en
+crise et sa légitimité menacée. Une politique du savoir est donc un enjeu
+crucial.
+
+La charte pédagogique doit être associée à une charte d'appropriation et une
+charte de diffusion. La charte d'appropriation stipule les règles
+d'inscription du savoir structuré selon la charte pédagogique sur un support
+matériel. Une telle charte d'appropriation se décline par exemple en une
+charte graphique quand le support est le papier, une charte graphique et une
+charte de navigation quand le support est dynamique.
+
+\end{ungrain}
+
+\begin{ungrain}[charteAppropriation]
+{La charte d'appropriation}
+{Charte d'appropriation}
+\begin{renvois}
+\courscorrelat{chartePedagogique,charteDeDiffusion}
+\end{renvois}
+
+La charte d'appropriation est une norme déterminant la manière dont il faut
+physiquement et effectivement réaliser un document pédagogique sur un
+support matériel. Cette charte stipule comment inscrire matériellement le
+cours.
+
+Cette charte est essentielle dans la mesure où elle constitue le passage
+d'une norme logique, la charte pédagogique, à une norme sémiotique. Elle
+définit en effet la meilleure manière, au sens de l'université, de présenter
+matériellement un contenu pédagogique en vue de son appropriation par le
+lecteur apprenant.
+
+Dans le cas du support papier, la charte d'appropriation est essentiellement
+une \coursindex{charte graphique}{Charte/graphique} fixant des règles typo
+dispositionnelles pour une meilleure appréhension et appropriation du
+contenu.
+
+Dans le cas d'un support dynamique, la charte d'appropriation est une charte
+graphique stipulant comment la synopsis de l'écran doit se constituer et une
+\coursindex{charte navigationnelle}{Charte/navigationnelle} stipulant la
+manière de naviguer d'écran en écran. Ces deux chartes sont intimement liées
+puisque ce sont les informations à l'écran qui permettent de définir, pour
+l'apprenant, les navigations à entreprendre. Elles se co-déterminent.
+\end{ungrain}
+
+\begin{ungrain}[charteDeDiffusion]
+{La Charte de diffusion}
+{Charte de diffusion}
+\begin{renvois}
+\courscorrelat{chartePedagogique,charteAppropriation}
+\end{renvois}
+
+La charte de diffusion est une norme stipulant quand, comment et à qui
+rendre le matériau documentaire accessible.
+
+Cette charte prend en compte
+\begin{itemize}
+\item les aspects sécuritaires pour la transmission
+des informations ;
+\item la contractualisation entre les auteurs, les apprenants et le système
+  ;
+\item le problème des droits d'auteurs ;
+\end{itemize}
+\end{ungrain}
+
+\unesection{Les instructions disponibles}
+
+\begin{ungrain}
+{Commandes et environnements}
+{Instructions de PolyTeX}
+\begin{renvois}
+\courscorrelat{chartePedagogique}
+\end{renvois}
+
+Les outils \LaTeX\ proposés aux auteurs par \polytex\ permettent
+d'objectiver par des structures de programmation \TeX\ le rôle logique des
+éléments textuels du cours pour qu'ils puissent être manipulés et
+interprétés par la chaîne éditoriale et produire un document structuré
+logiquement et formaté graphiquement, c'est-à-dire un document structuré
+graphiquement. La chaîne éditoriale produit une structure graphique qui
+manifeste sur le support écran ou papier la structure logique du cours.
+
+Les outils sont de deux types : les commandes et les environnements. Une
+commande consiste en un label suivi d'un certain nombre d'arguments pris
+entre accolades (\emph{\{...\}}). La place de l'argument dans la liste des
+arguments donne le rôle logique de l'élément textuel donné comme
+argument. Par exemple,
+\begin{verbatim}
+\titrepoly{Manuel d'utilisation}
+\end{verbatim}
+indique que \emph{Manuel d'utilisation} est l'élément textuel devant jouer
+le rôle de titre dans la structuration logique du contenu.
+
+Les environnements, comme leur nom l'indique, mettent en place un contexte
+d'interprétation pour traiter les éléments textuels qu'ils encadrent. Ces
+éléments textuels ne sont pas des arguments, autrement dit ils ne sont pas
+associés à une variable par \polytex\ pour être soumis à divers
+traitements. Les éléments textuels encadrés par l'environnement sont
+analysés dans leur ordre d'apparition selon les procédures habituelles de
+\LaTeX. Cela signifie en particulier qu'il est possible d'utiliser toutes
+les ressources \LaTeX\ à cet endroit. Par conséquent, si vous avez accès à
+une doc \LaTeX, c'est à ce niveau qu'il faut en tirer parti.
+
+le concept canonique dont l'exercice traite un aspect ; le concept
+  canonique consiste en une liste de termes séparés par des tirets
+  (\texttt{-}) ; suite à un problème de l'implémentation de \polytex, il ne
+  peut y avoir de blanc entre les termes d'un concept clef (le distiller est
+  alors perdu) ; ce problème sera résolu dans la prochaine version ;
+
+Les environnements peuvent néanmoins posséder des arguments, qui donnent des
+valeurs à des variables paramétrant le contexte d'interprétation constitué
+par l'environnement :
+\begin{verbatim}
+\begin{ungrain}
+% les arguments
+{<titre du grain>}
+{<concept servant d'entrée canonique au grain>}
+
+% le contenu du grain
+< le contenu textuel du grain,
+encadré par l'environnement>
+\end{verbatim}
+
+cette instruction de \polytex\ indique qu'il faut interpréter le contenu
+textuel dans le contexte d'\emph{ungrain}, ce contexte étant paramétré par
+un titre, une entrée et des renvois.
+
+Les arguments de l'environnement sont nécessaires. Par ailleurs, il faut
+leur donner un contenu : il ne faut pas par exemple taper
+\begin{verbatim}
+\begin{ungrain}{}{} un texte.... \end{ungrain}
+\end{verbatim}
+
+Même si \polytex\ ne se plaint pas, cela signifie que vous avez tapé un
+grain sans titre ni
+notion clé associée, ce qui reflète un certain flou dans la conception
+pédagogique de votre cours.
+
+Autrement dit, les arguments sont nécessaires car ils possèdent une
+pertinence au niveau de la charte pédagogique. Leur présence n'est donc pas
+requise pour des raisons informatiques, mais pour des raisons sémantiques.
+\end{ungrain}
+
+\begin{ungrain}[structurationDuCours]
+{La structuration du cours selon PolyTeX}
+{Structuration du cours}
+
+Le cours est structuré selon deux axes : un axe en profondeur et un axe en
+largeur. Selon l'axe en profondeur, le cours se structure en chapitre,
+section et grain. Selon l'axe en largeur, le cours se structure en cours,
+documents, exemples et exercices. En croisant les deux axes, on obtient donc
+les commandes suivantes, en suivant l'ordre en largeur d'abord :
+
+\begin{description}
+
+\item[le cours :] c'est la partie du polycopié qui donne un point de vue
+  synthétique sur la matière enseignée et les concepts appréhendés ; il
+  constitue la première partie du document, celle intitulée << le cours >>
+  (!) ; les autres valeurs de l'axe en largeur, à savoir \emph{document,
+  exercice} et \emph{exemple} sont rassemblées en une autre partie intitulée
+  << les annexes >> ;
+
+\begin{verbatim}
+\unchapitre{...}
+\unesection{...}
+\begin{ungrain}{...}{...}
+.... \end{grain}
+\end{verbatim}
+
+\item[les documents :] c'est un chapitre des annexes permettant
+  d'approfondir analytiquement, en faisant appel à des documents d'auteurs
+  les éléments présentés synthétiquement dans le cours ;
+
+\begin{verbatim}
+\chapitredocuments
+\unesectiondocuments{...}
+\begin{hyperdoc}{...}{...}
+.... \end{hyperdoc}
+\end{verbatim}
+
+\item[les exemples :] c'est un chapitre des annexes permettant d'illustrer la
+  lecture du cours et des documents ;
+\begin{verbatim}
+\chapitreexemples
+\unesectionexemples{...}
+\begin{hyperexemple}{...}
+.... \end{hyperexemple}
+\end{verbatim}
+
+\item[les exercices :] c'est un chapitre des annexes permettant d'exercer sa
+  lecture du cours et des documents sur des exercices construits, \emph{a
+  priori} de manière analogue aux exemples ;
+\begin{verbatim}
+\chapitreexercices
+\unesectionexercices{...}
+\begin{hyperexercice}{...}{...}
+.... \end{hyperexercice}
+\end{verbatim}
+
+\end{description}
+
+En plus des axes en profondeur et en largeur, on peut distinguer un axe
+transversal consistant dans les renvois explicites des éléments du cours
+entre eux. On distingue ainsi :
+\begin{verbatim}
+\courscorrelat{}
+\coursreference{}
+\coursexercice{}
+\coursdocument{}
+\coursexemple{}
+\end{verbatim}
+
+Enfin, on aura une commande pour constituer l'index des notions, permettant
+une navigation ou lecture guidée par les concepts :
+\begin{verbatim}
+\coursindex{}{}
+\end{verbatim}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Titre du cours}
+{Titre du cours}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\titrecours
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] cinq arguments :
+\begin{enumerate}
+\item le titre du cours ;
+\item la partie du cours traitée dans ce polycopié ;
+\item le ou les auteurs ;
+\item l'institution ;
+\item la date ;
+\end{enumerate}
+
+\item[Exemple :] ~\\
+\begin{verbatim}
+\titrecours{Manuel d'utilisation}
+{Texte intégral}
+{Bruno Bachimont, Nicolas Salzmann}
+{Université de Technologie de Compiègne}
+{Novembre 1997}
+\end{verbatim}
+\item[Sémantique :] un cours correspond à une unité d'enseignement ; le
+  cours contient les notions enseignées dans cette unité, corrélées à des
+  documents, exemples et exercices ;
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}{Les chapitres}
+{Chapitre}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\unchapitre
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, le titre du chapitre ;
+\item[Exemple :]  ~\\
+\begin{verbatim}
+\unchapitre{Introduction}
+\end{verbatim}
+\item[Sémantique :] l'acception habituelle de << chapitre >> ;
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}
+{Les sections}
+{Section}
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\unesection
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, le titre de la section ;
+\item[Exemple :] ~\\
+\begin{verbatim}
+\unesection{Origine du projet}
+\end{verbatim}
+
+\item[Sémantique :] acception habituelle de << section >> ;
+\end{description}
+\end{ungrain}
+
+
+\begin{ungrain}[grain]
+{Les grains}
+{Grain de connaissance}
+\begin{renvois}
+\courscorrelat{renvoiDoc,renvoiXmp,renvoiExe,renvoiGrain}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+
+\verb$\begin{ungrain}[$\textit{label}\verb$]{$\textit{titre du grain}\verb$}{$\textit{concept canonique}\verb$}$
+
+\noindent\verb$\end{ungrain}$
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] \emph{ungrain} est un environnement qui possède trois
+  arguments dont deux sont obligatoirement présents :
+\begin{enumerate}
+\item le titre du grain;
+\item le concept canonique du grain servant d'entrée encyclopédique au grain
+(utilisé dans l'index et pour la navigation par les renvois).
+\end{enumerate}
+Un argument optionnel, précédant les arguments sus-cités, permet de préciser
+un \textit{label} qui sera utilisé pour faire référence au concept canonique
+du grain avec la commande \verb$\courscorrelat$.
+
+Le fait qu'il s'agisse d'un environnement signifie que le contenu ou le
+texte du grain est encadré dans le fichier source de l'auteur par
+\verb|\begin{ungrain}| et \verb|\end{ungrain}|. Le fait qu'il y ait deux
+  arguments obligatoires et un argument optionnel signifie que
+\begin{verbatim}
+\begin{ungrain}
+\end{verbatim}
+est suivi soit de deux éléments textuels encadrés par des accolades (\texttt{\{...\}}) soit d'un élément encadré par des crochets (\texttt{[...]}) suivi de deux éléments encadrés par des accolades.
+
+\item[Exemple :]
+~\\ \begin{verbatim}
+\begin{ungrain}[chartePedagogique]
+{La charte pédagogique}
+{Charte pédagogique}
+\begin{renvois}
+\courscorrelat{charteAppropriation,charteDiffusion}
+\coursexercice{Exercice3}
+\coursdocument{Doc2,Doc13}
+\end{renvois}
+
+La charte pédagogique est une norme...
+\end{ungrain}
+\end{verbatim}
+
+  On peut ajouter un environnement
+  optionnel, \verb|\begin{renvois}| qui permet de baliser les liens que
+    possède le grain avec d'autres éléments du cours : d'autres grains
+    (\verb|\courscorrelat}|), des documents (\verb|\coursdocument}|), des
+exercices (\verb|\coursexercice}|), des exemples (\verb|\coursexemple}|).
+
+  le concept canonique d'un grain est indexé dans l'index des entrées
+  canoniques où la page correspondante apparaît en gras.
+
+\item[Sémantique :] un grain est une unité autonome de contenu, qui peut
+  être lue ou consultée pour elle-même ; typiquement, elle ne fait pas plus
+  de 2-3 pages ; elle se rapporte à un concept canonique dont elle traite un
+  aspect particulier ; par exemple, ce peut en être la définition ;
+
+  le grain est également l'unité à partir de laquelle on établit des liens
+  aux autres parties du cours ;
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[indexationNotions]{L'indexation des notions}
+{Indexation des notions}
+\begin{renvois}
+\courscorrelat{indexRerum}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursindex
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] deux arguments :
+\begin{enumerate}
+\item le texte indexé ;
+\item l'entrée de l'index qui, consignée dans l'\emph{index rerum}, renverra
+  au texte indexé du premier argument ;
+\end{enumerate}
+
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursindex{La charte pédagogique}
+{Charte pédagogique}
+\end{verbatim}
+\item[Sémantique :] le texte indexé apparaît en petites capitales. Cela
+  permet de le visualiser au premier coup d'\oe il sur la page et de savoir
+  où chercher les informations concernant la notion qui a motivé la
+  consultation de l'index et la navigation depuis ce dernier.
+\end{description}
+
+
+\end{ungrain}
+
+\begin{ungrain}[indexationDesNoms]{L'indexation des noms}
+{Indexation des noms}
+\begin{renvois}
+\courscorrelat{indexNominum}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursnom
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un argument
+qui est consigné dans l'\emph{index nominum} et qui est imprimé dans
+le texte ;
+
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursindex{Kant}
+\end{verbatim}
+\item[Sémantique :] le texte indexé apparaît en petites capitales. Cela
+  permet de le visualiser au premier coup d'\oe il sur la page et de savoir
+  où chercher les informations concernant la notion qui a motivé la
+  consultation de l'index et la navigation depuis ce dernier.
+\end{description}
+
+
+\end{ungrain}
+
+
+\begin{ungrain}[renvoiFromGrain]
+{Les renvois}
+{Renvois à partir d'un grain}
+\begin{renvois}
+\courscorrelat{renvoiDoc,renvoiXmp,renvoiExe,renvoiGrain}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\begin{renvois}
+\end{renvois}
+\end{verbatim}
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] aucun ;
+\item[Exemple :] ~\\
+\begin{verbatim}
+\begin{renvois}
+\courscorrelat{charteAppropriation,charteDeDiffusion}
+\coursexercice{Exercice3}
+\coursexemple{Exemple2,Exemple6}
+\coursdocument{Doc2,Doc13}
+\end{renvois}
+\end{verbatim}
+\item[Sémantique :] environnement optionnel, qui se place juste après les
+  arguments d'un grain pour déclarer les liens qu'entretient ce grain avec
+  les autres parties du cours.
+\end{description}
+\end{ungrain}
+
+
+\begin{ungrain}[renvoiGrain]
+{Renvoi à un grain}
+{Renvoi à un grain}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+
+\verb$\courscorrelat{$\textit{liste de labels}\verb$}$
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, une liste de labels associés à des concepts
+ canoniques définis dans des grains;
+
+\item[Exemple :] ~\\
+\begin{verbatim}
+\courscorrelat{chartePedagogique}
+\end{verbatim}
+
+
+\item[Sémantique :] propose la navigation à d'autres grains du cours en en
+  précisant leur concept canonique;
+\end{description}
+
+  Attention ! Tous les \coursindex{blancs}{Blanc dans les clés} comptent.
+  Ainsi, il ne faut faire suivre la virgule que par un retour à la ligne ou
+  un texte, il ne faut pas intercaler de blancs entre les concepts. Par
+  exemple (les blancs sont indiqués par \verb|_|) :
+\begin{verbatim}
+\courscorrelat{uneCle,_uneAutreCle}
+\courscorrelat{uneCle,uneAutreCle}
+\end{verbatim}
+construira trois liens vers les concepts clés associés aux labels
+\begin{verbatim}
+uneCle
+_uneAutreCle
+uneAutreCle
+\end{verbatim}
+En résumé, sont corrects :
+\begin{verbatim}
+\courscorrelat{uneCle,uneAutreCle,
+encoreUneAutreCle}
+\courscorrelat{uneCle,
+uneAutreCle}
+\end{verbatim}
+Sont incorrects :
+\begin{verbatim}
+\courscorrelat{uneAutreCle,_uneAutreCle}
+\courscorrelat{uneCle,
+_uneAutreCle}
+\courscorrelat{uneCle,_
+uneAutreCle}
+\end{verbatim}
+
+En cas d'erreurs, la navigation n'est pas compromise. Mais l'index des
+entrées canoniques peut vous paraître légèrement \emph{fancy} !.
+
+\end{ungrain}
+
+\begin{ungrain}[renvoiDoc]
+{Renvoi à un document}
+{Renvoi à un document}
+\begin{renvois}
+\courscorrelat{lesDocuments}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursdocument
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, une liste de labels de documents;
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursdocument{Doc2,Doc4,Doc7}
+\end{verbatim}
+\item[Sémantique :] propose la navigation à des documents;
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[renvoiExe]
+{Renvoi à un exercice}
+{Renvoi à un exercice}
+\begin{renvois}
+\courscorrelat{lesExercices}
+\end{renvois}
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursexercice
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, une liste de labels d'exercices;
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursexercice{Exercice2}
+\end{verbatim}
+
+\item[Sémantique :] propose la navigation à des exercices;
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[renvoiXmp]
+{Renvoi à un exemple}
+{Renvoi à un exemple}
+\begin{renvois}
+\courscorrelat{lesExemples}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursexemple
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un seul argument, une liste de labels d'exemples,
+
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursexemple{Exemple2, Exemple4,Exemple13}
+\end{verbatim}
+\item[Sémantique :] propose la navigation à des exemples;
+
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[renvoiRef]
+{Renvoi à une référence}
+{Renvoi à une référence}
+\begin{renvois}
+\courscorrelat{compilationCours}
+\coursexemple{Exemple1}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursreference
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] un argument :
+\begin{enumerate}
+\item la clé de la référence ;
+\end{enumerate}
+\item[Exemple :] ~\\
+\begin{verbatim}
+\coursreference{BotteroBOOK87}
+\end{verbatim}
+
+\item[Sémantique :] il s'agit de la mention d'une référence
+  bibliographique. Une telle commande a deux effets : mention de la
+  référence à l'endroit du texte où apparaît la commande, ajout à la
+  bibliographie finale rassemblée à la fin du cours de l'entrée
+  bibliographique complète.
+
+  Pour bien utiliser cette commande, il faut constituer un fichier
+  \emph{.bib} qui contient les références bibliographiques entrées
+  dans le format \bibtex. Ce fichier est une ressource bibliographique que
+  l'on mobilise pour constituer la bibliographie du cours. Idéalement, il
+  n'existe un seul fichier \emph{Biblio-DICIT.bib} qui contient toutes les
+  références susceptibles d'être mentionnées dans un cours de DICIT.
+
+  \polytex\ est configuré pour aller chercher dans un fichier
+  \emph{Biblio-DICIT.bib} les références dont il a besoin. On verra en
+  exemple comment éditer un fichier de ressources bibliographiques.
+
+  En pratique, il conviendra d'envoyer au(x) responsable(s) éditorial(aux)
+  de DICIT les références que l'on utilise pour qu'il(s) puisse(nt)
+  constituer le fichier ressource dans le format convenable et le tenir à
+  jour (doublons, incohérences, incomplétudes). La bibliographie est une
+  tâche délicate qu'il faut centraliser. En particulier, cela permet de
+  l'éditer pour le distribuer aux étudiants. Il est possible de commenter la
+  bibliographie pour que l'édition puisse les intégrer et produire ainsi un
+  véritable outil de travail.
+
+  Quand ce fichier est constitué, et que l'on a utilisé la commande
+\begin{verbatim}\coursreference\end{verbatim}, on fait tourner le programme
+\emph{bibtex} sur le fichier source (\emph{bibtex toto}, si le fichier
+source est \emph{toto.tex}), et on recompile le fichier source en exécutant
+la commande \emph{latex toto.tex}.
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}
+{Le chapitre des documents}{Chapitre des documents}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\chapitredocuments
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] aucun argument ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitredocuments
+
+\unesectiondocuments
+{Les instructions de PolyTeX}
+
+\begin{hyperdoc}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque le début de l'annexe contenant les documents
+donnés pour appuyer le cours ;
+\end{description}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Une section dans les documents}{Section dans les documents}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\unesectiondocuments
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] un argument, le titre ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitredocuments
+
+\unesectiondocuments
+{Les instructions de PolyTeX}
+
+\begin{hyperdoc}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque une section dans la liste des documents ;
+\end{description}
+
+\end{ungrain}
+
+
+\begin{ungrain}
+{Le chapitre des exemples}{Chapitre des exemples}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\chapitreexemples
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] aucun argument ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitreexemples
+
+\unesectionexemples
+{Les instructions de PolyTeX}
+
+\begin{hyperexemple}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque le début de l'annexe contenant les exemples
+donnés pour appuyer le cours ;
+\end{description}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Une section dans les exemples}{Section dans les exemples}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\unesectionexemples
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] un argument, le titre ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitreexemples
+
+\unesectionexemples
+{Les instructions de PolyTeX}
+
+\begin{hyperexemple}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque une section dans la liste des exemples ;
+\end{description}
+
+\end{ungrain}
+
+
+\begin{ungrain}
+{Le chapitre des exercices}{Chapitre des exercices}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\chapitreexercices
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] aucun argument ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitreexercices
+
+\unesectionexercices
+{Les instructions de PolyTeX}
+
+\begin{hyperexercice}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque le début de l'annexe contenant les exercices
+donnés pour appuyer le cours ;
+\end{description}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Une section dans les exercices}{Section dans les exercices}
+
+\begin{description}
+\item [Nom de l'instruction :]
+\begin{verbatim}
+\unesectionexercices
+\end{verbatim}
+
+\item[type de l'instruction :] commande ;
+
+\item[Arguments :] un argument, le titre ;
+
+\item[Exemple :]
+\begin{verbatim}
+\chapitreexercices
+
+\unesectionexercices
+{Les instructions de PolyTeX}
+
+\begin{hyperexercice}
+...
+\end{verbatim}
+
+\item[Sémantique :] marque une section dans la liste des exercices ;
+\end{description}
+
+\end{ungrain}
+
+
+\begin{ungrain}[lesDocuments]
+{Les documents}
+{Documents}
+\begin{renvois}
+\courscorrelat{renvoiDoc,grain}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\begin{hyperdoc}
+\end{hyperdoc}
+\end{verbatim}
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] deux arguments :
+\begin{enumerate}
+\item le titre du document ;
+\item l'origine du document ;
+\end{enumerate}
+\item[Exemple :] ~\\
+\begin{verbatim}
+\begin{hyperdoc}
+{Le lisible et le visible}
+{\emph{Du lisible au visible},
+Ivan Illich, Cerf, 1991.}
+\begin{renvois}
+\courscorrelat{La révolution alphabétique}
+\end{renvois}
+
+...
+\end{hyperdoc}
+\end{verbatim}
+
+Il est possible (et donc optionnel) d'ajouter des renvois après les
+arguments de l'environnement en utilisant l'instruction
+\begin{verbatim}
+\begin{renvois}...\end{renvois}
+\end{verbatim}
+ Les concepts clés mentionnés sont
+alors indexés dans l'index des concepts canoniques et la page du document
+renvoyant à ces concepts apparaît en gras italique.
+
+Les renvois à d'autres exemples, exercices ou documents n'apparaissent pas
+dans les index.
+\item[Sémantique :] un document est un matériau d'auteur permettant
+  d'approfondir et d'illustrer un point du cours ;
+
+\end{description}
+\end{ungrain}
+
+
+\begin{ungrain}
+{Les commentaires des documents}
+{Commentaires}
+\begin{renvois}
+\courscorrelat{lesDocuments}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\begin{commentaire}
+\end{commentaire}
+\end{verbatim}
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] aucun argument ;
+
+\item[Exemple :] ~\\
+~\\
+\begin{verbatim}
+\begin{commentaire}
+% à propos du lisible et du visible
+
+Ce texte est fondamental car
+il met en lumière...
+
+\end{commentaire}
+\end{verbatim}
+
+\item[Sémantique :] le commentaire a deux fonctions :
+\begin{itemize}
+\item justifier en quoi le document est un support et une illustration du
+  cours ; le commentaire propose donc une analyse du document pour en
+  permettre la compréhension ;
+\item approfondir un ou des points particuliers du cours qui ne justifient
+  pas d'une présentation dans le cours proprement dit, mais seulement à
+  l'occasion de l'analyse des matériaux documentaires proposés. Ce sont des
+  éléments que l'élève peut ignorer dans une première lecture.
+\end{itemize}
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[lesExemples]
+{Les exemples}
+{Exemples}
+\begin{renvois}
+\courscorrelat{grain,renvoiFromGrain,renvoiXmp}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+
+\verb$\begin{hyperexemple}[$\textit{label}\verb$]{$\textit{titre de l'exemple}\verb$}$
+
+\noindent\verb$\end{hyperexemple}$\\
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] deux arguments :
+\begin{enumerate}
+\item un label optionnel
+\item le titre de l'exemple ;
+
+\end{enumerate}
+\item[Exemple :] ~\\
+\begin{verbatim}
+\begin{hyperexemple}[premierExemple]
+{Le lisible et le visible}
+\begin{renvois}
+\courscorrelat{chartePedagogique}
+\end{renvois}
+
+...
+\end{hyperexemple}
+\end{verbatim}
+
+Il est possible (et donc optionnel) d'ajouter des renvois après les
+arguments de l'environnement en utilisant l'instruction
+\begin{verbatim}
+\begin{renvois}...\end{renvois}
+\end{verbatim}
+ Les concepts clés mentionnés sont
+alors indexés dans l'index des concepts canoniques et la page du document
+renvoyant à ces concepts apparaît en italique.
+
+Les renvois à d'autres exemples, exercices ou documents n'apparaissent pas
+dans les index.
+
+\item[Sémantique :] illustre un grain ;
+
+  \polytex\ calcule une table des matières des exemples, la \emph{table des
+    exemples}. Cette table associe à chaque exemple un label de la forme
+  \emph{Exemple}\emph{n}, par exemple Exemple2. Ce label etant susceptible de
+  changer lors de l'insertion ou la supression d'exemples, il est recommandé de
+  fournir un label spécifique (argument optionnel), permettant d'identifier de
+  manière unique l'exemple. C'est donc ce label qu'il faut utiliser dans
+  les commandes \verb|\coursexemple| pour référencer un exemple depuis un
+  grain du cours.
+
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[lesExercices]
+{Les exercices}
+{Exercices}
+\begin{renvois}
+\courscorrelat{grain,renvoiFromGrain,renvoiExe}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+
+\verb$\begin{hyperexercice}[$\textit{label}\verb$]{$\textit{titre de l'exercice}\verb$}$
+
+\noindent\verb$\end{hyperexercice}$\\
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] argument :
+\begin{enumerate}
+\item le titre de l'exercice ;
+
+\end{enumerate}
+\item[Exemple :] ~\\
+\begin{verbatim}
+\begin{hyperexercice}
+{Le lisible et le visible}
+\begin{renvois}
+\courscorrelat{chartePedagogique}
+\end{renvois}
+
+Articuler la lisibilité et la
+visibilité en termes de charte
+pédagogique.
+\end{hyperexercice}
+\end{verbatim}
+
+Il est possible (et donc optionnel) d'ajouter des renvois après les
+arguments de l'environnement en utilisant l'instruction
+\begin{verbatim}
+\begin{renvois}...\end{renvois}
+\end{verbatim}
+
+Les concepts clés mentionnés sont
+alors indexés dans l'index des concepts canoniques et la page du document
+renvoyant à ces concepts apparaît en italique.
+
+Les renvois à d'autres exemples, exercices ou documents n'apparaissent pas
+dans les index.
+
+\item[Sémantique :] permet à un apprenant de tester et évaluer sa propre
+  lecture ; ce peut être des questions sur ce qu'on vient de lire, ou des
+  petits exercices consistant à refaire le raisonnement du cours mais avec
+  d'autres données ou paramètre ;
+
+  \polytex\ calcule une table des matières des exercices, la \emph{table des
+    exercices}. Cette table associe à chaque exercice un label de la forme
+  \emph{Exercice}\emph{n}, par exemple Exercice2. Ce label etant susceptible de
+  changer lors de l'insertion ou la supression d'exercices, il est recommandé de
+  fournir un label spécifique (argument optionnel), permettant d'identifier de
+  manière unique l'exercice. C'est donc ce label qu'il faut utiliser dans
+  les commandes \verb|\coursexercice| pour référencer un exercice depuis un
+  grain du cours.
+
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[ecrireTransparents]{Ecrire des transparents}{Ecrire des transparents}
+\begin{renvois}
+\courscorrelat{transparentsEtConcepts}
+\end{renvois}
+
+\polytex\ permet également d'éditer dans un même fichier le contenu
+pour une édition dite << polycopié >> ou une édition dite <<
+transparent >>. Lorsque le mode << transparent >> est choisi, le
+fichier produit par \polytex\ ne contient que les transparents
+associés au cours. Lorsque le mode << polycopie >> est choisi, le
+fichier produit par \polytex\ ne contient  tout le cours
+\emph{sauf} les transparents.
+
+Il faut donc bien distinguer le cours << transparent >> du cours <<
+polycopié >>. Pour cela on prendra les conventions suivantes :
+\begin{itemize}
+    \item quand on exécute \polytex\ sur un cours avec l'option <<
+    transparent >>, on renommera le fichier nom\texttt{.dvi} produit
+    selon la syntaxe suivante : nom\texttt{-slides.dvi} ;
+
+    \item quand on exécute \polytex\ sur un cours avec l'option <<
+    transparent >>, on renommera le fichier nom\texttt{.dvi} produit
+    selon la syntaxe suivante : nom\texttt{-poly.dvi} ;
+\end{itemize}
+
+Le fichier contenant les transparents contient des hyperliens aux
+fichiers contenant le cours polycopié, et réciproquement. Pour chaque
+grain du cours, par conséquent pour chaque concept clé, on définit
+quels transparents sont associés. Réciproquement, pour chaque
+transparent on définit les concepts clés associés, permettant ainsi
+de revenir au cours.
+
+On a donc une navigation logique qui permet de passer d'un document à
+un autre, ici d'un polycopié à ses transparents associés, selon les
+liens conceptuels établis par l'auteur lors de son écriture.
+
+Les hyperliens ne sont bien sûr pas posés automatiquement entre le
+cours et les transparents. Il serait même stupide que de vouloir le
+faire ; c'est de toute manière aux antipodes de l'approche adoptée
+dans \polytex. En donnant la possibilité à un auteur d'écrire dans
+une même ressource pédagogique, dans un même fichier, un cours qui
+pourra être produit sous forme de transparent ou sous forme de
+polycopié. On lui donne, à travers les commandes proposés, l'occasion
+de réfléchir aux liens logiques entre le polycopié et les
+transparents, et de définir \emph{a priori} un parcours de lecture
+entre le cours projeté en polycopié et le cours projeté en
+transparents.
+
+\end{ungrain}
+
+\begin{ungrain}[transparent]{Un transparent}{Transparent}
+\begin{renvois}
+\courscorrelat{ecrireTransparents,transparentsEtConcepts,
+conceptsEtTransparents}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\begin{untransparent}
+\end{untransparent}
+\end{verbatim}
+
+\item [type de l'instruction :] environnement ;
+
+\item[Arguments :] un argument, le titre du transparent ;
+
+\item[Exemple :] ~\\
+~\\
+\begin{verbatim}
+\begin{untransparent}{Le lisible et le visible}
+\begin{renvois}
+\coursconcept{Lisible, Visible}
+\end{renvois}
+
+\ldots
+
+\end{untransparent}
+\end{verbatim}
+
+\item[Sémantique :] le transparent peut être compris comme un mode
+introductif et résumé à un grain du cours. Le principe est que pour
+unn grain du cours, on écrit également un transparent. Il y aura un
+lien logique entre le grain et ce transparent.
+
+Mais parfois, le contenu d'un grain est trop riche pour ne tenir que
+sur un transparent. Il faut alors concevoir plusieurs transparents.
+Chaque transparent aura un renvoi au concept du grain correspondant.
+
+Réciproquement, un transparent peut renvoyer à plusieurs concepts, car
+on choisit un mode résumé intégrant les grains en un seul transparent.
+
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[conceptsEtTransparents]{Des grains aux transparents}{Concepts et transparents}
+\begin{renvois}
+\courscorrelat{transparent,transparentsEtConcepts}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\courstransparent
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] une liste de titres de transparent, associés au
+grain ;
+
+\item[Exemple :] ~\\
+~\\
+\begin{verbatim}
+\begin{ungrain}{Le lisible et le visible}
+\begin{renvois}
+\courstransparent{Lisible, Visible}
+\end{renvois}
+
+\ldots
+
+\end{ungrain}
+\end{verbatim}
+
+\item[Sémantique :] un grain peut être associé à plusieurs
+transparents ; on consigne le titre de ces transparents dans la liste
+donnée comme argument à \verb+\courstransparent+.
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[transparentsEtConcepts]{Des transparents aux grains}{Transparents et concepts}
+\begin{renvois}
+\courscorrelat{transparent,conceptsEtTransparents}
+\end{renvois}
+
+\begin{description}
+\item[Nom de l'instruction :] ~\\
+\begin{verbatim}
+\coursconcept
+\end{verbatim}
+
+\item [type de l'instruction :] commande ;
+
+\item[Arguments :] une liste de concepts clés, correspondant aux grains
+résumés dans le transparent ;
+
+\item[Exemple :] ~\\
+~\\
+\begin{verbatim}
+\begin{untransparent}{Le lisible et le visible}
+\begin{renvois}
+\coursconcept{Lisible, Visible}
+\end{renvois}
+
+\ldots
+
+\end{ungrain}
+\end{verbatim}
+
+\item[Sémantique :] le transparent permet de revenir sur les grains du
+cours qu'il synthétise.
+\end{description}
+\end{ungrain}
+
+\begin{ungrain}[RedactionCours]
+{\'Ecrire un cours}
+{Rédaction d'un cours}
+
+On écrit un cours de la manière suivante :
+
+\begin{verbatim}
+\documentclass[ecran,final,polycopie]{PolyTeX}
+\begin{document}
+... votre texte dans les instruction ...
+\end{document}
+\end{verbatim}
+
+Les options disponibles sont les suivantes :
+\begin{itemize}
+    \item  \texttt{ecran} ou \texttt{impression} selon que la sortie
+    visée est sur un support écran ou papier ;
+
+    l'option par défaut est \texttt{ecran} ;
+
+    \item  \texttt{final} ou \texttt{intermédiaire}, selon que l'on veut
+    visualiser sous PDF ou sur le DVIviewver ;
+
+    l'option par défaut est \texttt{final} ;
+
+    \item  \texttt{polycopie} ou \texttt{transparent}, selon que l'on
+    veut produire un cours pour polycopiés ou pour
+    transparents ;
+
+    l'option par défaut est \texttt{polycopie} ;
+\end{itemize}
+
+
+
+Ces options se placent juste après \emph{documentclass} entre
+crochets.  Ces options indiquent à \LaTeX comment compiler le texte en
+fonction du support d'inscription visé, le papier ou l'écran,
+transparent ou polycopié.
+\end{ungrain}
+
+\unchapitre{Naviguer}
+
+\unesection{Des concepts de navigation}
+
+\begin{ungrain}
+{La navigation physique}
+{Navigation physique}
+
+La navigation physique consiste à naviguer d'unité physique en unité
+physique du document inscrit sur un support.
+
+Sur le support matériel papier, l'unité physique est la page ; sur le
+support matériel dynamique, l'unité physique est l'écran. Naviguer
+physiquement, c'est passer de page en page ou d'écran en écran.
+
+Puisqu'il s'agit d'une navigation \emph{physique}, c'est le support matériel
+qui fournit le moyen d'effectuer la navigation : les pages du livres se
+feuillètent et permettent de passer d'une feuille à l'autre ; les browsers
+électroniques permettent de passer d'écran en écran. On notera que HTML,
+langage permettant de structurer les documents pour la lecture
+hypertextuelle sur le Web, adopte la notion de page et propose une
+navigation de page en page.
+
+La navigation physique s'oppose à la navigation logique puisque cette
+dernière ne considère pas la discrétisation ou segmentation du document
+opérée par son inscription sur un support matériel, mais la segmentation
+résultant de la structuration logique du document effectuée d'après la
+charte pédagogique.
+\end{ungrain}
+
+\begin{ungrain}
+{La navigation logique}
+{Navigation logique}
+
+La navigation logique consiste à naviguer d'unité logique en unité logique
+d'un ou de document(s). Cette navigation est indépendante du support.
+
+La navigation logique peut être de deux types :
+\begin{description}
+\item[la navigation logique globale] permet de naviguer sur des unités
+  logiques absolues, définies sur le document ; c'est par exemple pouvoir
+  aller d'importe quel point du document à la table des matières de ce
+  document ;
+
+\item[la navigation logique contextuelle] permet de naviguer vers des
+  destinations logiques dont le contenu dépend du contexte de la
+  consultation ; par exemple, la notion d'unité suivante dépend de l'unité
+  consultée : si l'on consulte la table des matières d'un chapitre, la
+  destination suivante n'est pas la première section du chapitre mais le
+  chapitre suivant ; en revanche, l'unité logique suivant une section est la
+  section suivante.
+\end{description}
+\end{ungrain}
+
+\unesection{La navigation physique dans Acrobat}
+
+\begin{ungrain}
+{La barre d'outils}
+{Barre d'outils PDF}
+
+AcrobatReader propose des instruments de navigation dans la barre
+d'outils. Ces instruments sont dépendants du support puisque, fournis par le
+logiciel, ils ne peuvent exploiter que la segmentation résultant de
+l'inscription dans le support. C'est pourquoi il ne peut s'agit que d'une
+navigation physique.
+
+La navigation physique ne se fait pas en cliquant sur les zones actives
+inscrites dans le document mais en cliquant en dehors du document sur la
+barre d'outils. De même, il est possible de passer de pages en pages en
+utilisant le pavé des flèches.
+\end{ungrain}
+
+\unesection{La navigation logique dans polytex}
+
+\begin{ungrain}
+{la navigation globale}
+{Navigation globale}
+
+La navigation logique globale s'effectue sur le document lui-même, dans la
+mesure où c'est la structuration logique du document, objectivée dans le
+processus de rédaction par les commandes \LaTeX, qui permet de la mettre en
+\oe uvre.
+
+La navigation globale est proposée au lecteur de manière uniforme sur chaque
+page du document, en pied de page. Sur la partie droite, on trouve un lien
+pour les parties annexes du document : les documents, les exercices, les
+exemples, la bibliographie.
+
+Sur la partie gauche, on trouve des liens pour les instruments de navigation
+globaux du documents : la table des matière, l'index des notions, la table
+des concepts canoniques.
+\end{ungrain}
+
+\begin{ungrain}
+{La navigation contextuelle}
+{Navigation contextuelle}
+
+La navigation logique contextuelle s'effectue sur haut de page, où une
+bannière de navigation est proposée à chaque page.
+
+Cette bannière est contextuelle. Elle propose d'aller à l'unité logique
+suivante, précédente, ou de niveau de structuration supérieure. Par exemple,
+la bannière d'un grain permet d'aller au grain suivant, au grain précédent,
+de remonter à la table des matières de la section.
+
+Le dernier grain d'une section, la dernière section d'un chapitre, le
+dernier chapitre n'ont pas d'unité logique suivante. De même, les premières
+unités logiques de ces structures n'ont pas d'unité logique précédente.
+\end{ungrain}
+
+\begin{ungrain}[navigationSemantiqueetGrain]
+{La navigation sémantique d'un grain}
+{Navigation sémantique et grain}
+\begin{renvois}
+\courscorrelat{renvoiFromGrain,%
+renvoiGrain,%
+renvoiDoc,%
+renvoiExe,%
+renvoiXmp,%
+conceptsEtTransparents}
+\end{renvois}
+
+La navigation sémantique correspond aux liens qu'entretient un grain
+avec les autres parties du document.  Le grain peut être un grain du
+cours, un grain documentaire, un grain exercice ou bien un exemple.
+En fonction du contenu du grain, on établit des liens avec d'autres
+grains, des documents, des exercices ou des exemples.  Ces liens se
+matérialisent au début du texte du grain par des rubriques :
+\begin{itemize}
+\item la rubrique en italique \emph{Cours} permet d'accéder à d'autres
+  grains du cours ;
+\item la rubrique en italique \emph{Documents} permet d'accéder à des
+  documents associés ;
+\item la rubrique en italique \emph{Exercices} permet d'accéder à des
+  exercices associés ;
+\item la rubrique en italique \emph{Exemples} permet d'accéder à des
+  exemples associés ;
+\item la rubrique en italique \emph{Transparents} permet d'accéder aux
+transparents associés.
+\end{itemize}
+
+\end{ungrain}
+
+\begin{ungrain}[NavigationSemantiqueTransparent]
+{La navigation sémantique d'un transparent}
+{Navigation sémantique et transparent}
+
+\begin{renvois}
+\courscorrelat{transparentsEtConcepts}
+\end{renvois}
+
+Un transparent est une unité sémantique résumant un ou plusieurs
+grains. Un transparent permet d'accéder par conséquent à deux types
+d'unités :
+\begin{itemize}
+    \item  les concepts explicitement référencés par la commande
+    \verb+\coursconcepts+ ;
+
+    \item  la table des transparents, accessible en cliquant le titre du
+    transparent ;
+\end{itemize}
+
+Le parcours d'un transparent à un autre se fait physiquement, en
+passage d'un page à un autre. En fait, un transparent est conçu pour
+tenir sur une page : ici, segmentation logique selon le contenu et
+segmentation physique selon le support doivent coïncider. Il est donc
+inutile que \polytex\ fournisse d'autres outils de navigation que ceux
+fournis par Acrobat pour la navigation physique.
+
+Il est également inutile de prévoir une navigation par la structure
+en ce qui concerne les transparents. En effet, il ne faut pas projeter
+sur eux ce qui relève de la structuration du poycopié : usuellement,
+les transparents se succèdent, mais ne visualisent pas une structure.
+Cette dernière est donnée oralement lors de la prestation magistrale
+ou consignée graphiquement sur le polycopié, transcription et
+réélaboration scripturale du cours oral. Par conséquent, il vaut mieux
+permettre d'accéder au polycopié depuis les transparents, et permettre
+alors au lecteur de naviguer dans le cours à partir des transparents,
+que de projeter sur les transparents une structure héritée du
+polycopié qui perdrait alors sa raison d'être puisque, par définition,
+le transparent n'est pas un support permettant d'objectiver une
+structure.
+\end{ungrain}
+
+\begin{ungrain}
+{Comment naviguer ?}
+{Navigation effective}
+
+La navigation effective qu'entreprend un lecteur est un mixte de navigation
+logique et de navigation physique.  Typiquement, on accède à une unité
+logique, par exemple un grain par les instruments logiques de navigation,
+que l'on peut lire de page en page en utilisant les outils de navigation
+physique, si le grain fait plus d'une page.
+
+En pratique, il faut proscrire la manipulation de l'ascenseur pour naviguer
+dans la mesure où ce dernier perd la synopsis des informations sur la page
+ou sur l'écran.
+\end{ungrain}
+
+\unesection{La navigation globale}
+
+\begin{ungrain}{Le sommaire}
+{Sommaire}
+
+Le sommaire est accessible depuis chaque page du document : il suffit de
+cliquer sur le mot sommaire du pied de page. Le sommaire contient la liste
+des chapitres, sections et grains du cours dans l'ordre où ils
+apparaissent. Le sommaire est dynamique : chaque rubrique mentionnée dans le
+sommaire est cliquable et permet d'accéder à la rubrique correspondante.
+
+Pour les annexes, seuls apparaissent le nom des chapitres correspondants :
+les documents, les exercices et les exemples. La liste des documents,
+exercices ou exemples n'apparaît dans le sommaire. Pour y accéder, soit on
+clique sur la mention du chapitre d'annexe dans le sommaire, soit on recours
+au pied de page.
+
+On est alors transporter sur la première page du chapitre d'annexe où
+apparaît la table des éléments rassemblés dans l'annexe.
+\end{ungrain}
+
+\begin{ungrain}[indexRerum]{L'index rerum}
+{Index rerum}
+\begin{renvois}
+\courscorrelat{indexationNotions}
+\end{renvois}
+
+L'index rerum ou index des notions est un index construit à l'aide de la
+commande \verb|\coursindex|. L'index construit est dynamique.
+\end{ungrain}
+
+\begin{ungrain}[indexNominum]{L'index nominum}
+{Index nominum}
+\begin{renvois}
+\courscorrelat{indexationDesNoms}
+\end{renvois}
+
+L'index nominum ou index des noms est un index construit à l'aide de la
+commande \verb|\coursnom|. L'index construit est dynamique.
+\end{ungrain}
+
+
+\begin{ungrain}[entreesCanoniques]{Les entrées canoniques}
+{Entrées canoniques}
+\begin{renvois}
+\courscorrelat{grain,indexRerum}
+\end{renvois}
+
+Chaque grain est déclaré avec un concept canonique qui le caractérise de
+manière unique. Si l'on prend l'image de l'encyclopédie, le concept
+canonique est l'entrée encyclopédique et le grain est l'article
+l'explicitant.
+
+Il est important de bien déclarer le concept canonique et de prendre soin à
+sa pertinence sémantique. En effet, le concept canonique a deux rôles :
+\begin{itemize}
+\item le concept canonique est indexé dans les entrées canoniques, et la
+  page du grain le définissant apparaît en gras ;
+\item le concept canonique permet de définir le grain comme cible des liens
+  éventuels que l'on veut disséminer dans le cours grâce aux commandes de
+\begin{verbatim}
+\begin{renvois}
+\courscorrelat{...}
+\end{renvois}
+\end{verbatim}
+\end{itemize}
+De plus, le concept canonique ne définit pas seulement la cible, mais
+également source du lien, à savoir le texte qui apparaîtra comme cliquable à
+l'écran. Ainsi, si vous tapez
+\begin{verbatim}
+\courscorrelat{Index rerum}
+\end{verbatim}
+c'est le texte \emph{Index rerum} qui apparaîtra comme cliquable sur
+la page contenant la commande \verb|\courscorrelat}|.  Il faut par
+conséquent que l'intitulé du concept soit suffisamment explicite pour
+que le lecteur puisse cliquer et naviguer en sachant ce qu'il va
+trouver.  Il doit pouvoir instancier la navigation dans le cadre de
+ses objectifs de lecture.
+
+La fonte des numéros de page est la suivante :
+\begin{description}
+\item[gras :] la page renvoie au grain dont le concept canonique est celui
+  indexé ; c'est la définition en quelque sorte du concept ;
+\item[italique :] la page renvoie à un exemple ou un exercice qui se
+  rapporte au concept ; ce concept a donc été déclaré par la commande
+\begin{verbatim}
+\begin{renvois}
+\courscorrelat{Le concept}
+\end{renvois}
+\end{verbatim}
+\item[gras italique :] la page renvoie à un document qui se rapporte au
+  concept ; il a été déclaré dans une commande de renvoi comme ci-dessus ;
+\item[romain :] la page renvoie à un grain de connaissance se rapportant au
+  concept sans en être la définition ; le concept n'est donc pas le concept
+  clé du grain mais un concept associé déclaré dans les renvois.
+\end{description}
+
+\end{ungrain}
+
+\begin{ungrain}{La table des transparents}
+{Table des transparents}
+
+\begin{renvois}
+\courscorrelat{ecrireTransparents}
+\end{renvois}
+
+\polytex\ calcule une table des transparents qu'il insère entre le
+titre du cours et les transparents. Pour la version électronique,
+cette table est dynamique : chaque entrée de la table est cliquable
+et permet d'accéder au transparent correspondant.
+
+Réciproquement, chaque titre d'un transparent est actif et permet,
+lorsqu'il est activé, d'accéder à l'entrée correspondante de la table
+des transparents.
+
+\end{ungrain}
+
+\unchapitre{La chaîne informatique}
+
+\unesection{La production d'un cours}
+
+\begin{ungrain}[editionSource]
+{\'Editer le texte source}
+{Edition du texte source}
+\begin{renvois}
+\courscorrelat{installEditeur,structurationDuCours}
+\end{renvois}
+
+Le texte source est un texte \emph{édité} et non \emph{traité}. Cela
+signifie que n'importe quel éditeur convient, il suffit de pouvoir produire
+une suite de caractères accentués.
+
+Le plus simple pour éditer un texte du cours et de reprendre le patron des
+commandes disponibles donné en annexe et d'éditer un élément du cours en
+copiant/collant le patron à l'endroit désiré et de remplir avec vos contenus
+les arguments des instructions ainsi que les textes encadrés dans les environnements.
+
+Si vous êtes sur un environnemnt Macintosh, il vaut mieux prendre l'éditeur
+Alpha de Peter Kekeher. Il vous offre un environnement complet d'édition de
+document \LaTeX.
+
+Alpha a été adapté par Paul Terray pour \polytex. Un nouveau menu, intitulé
+\texttt{Polytex}, permet de disposer des commandes et environnements de
+\polytex\ pour entrer le texte du cours et des annexes.
+Le menu est structuré en deux parties :
+\begin{itemize}
+\item une première partie pour la création et la compilation d'un nouveau
+  document ou le changement des options du documents ; ce menu comprend :
+  \begin{itemize}
+  \item \emph{Nouveau document} ;
+  \item \emph{Production} ;
+  \item \emph{Options de sortie} ;
+  \end{itemize}
+
+  si l'on choisit \emph{nouveau document}, Alpha demande quelles options de
+  sortie sont choisies : pour l'impression ou pour l'écran d'une part, pour
+  une version finale ou intermédiaire d'autre part. Alpha inscrit dans le
+  fichier les instructions \polytex\ pour la création d'un document et
+  réclame le titre, les auteurs et l'institution du cours ;
+
+  Si l'on choisit \emph{Production}, Alpha propose de créer les index sur
+  les concepts et les notions. Il faut pour cela que le fichier de style des
+  index (concepts.ist et notions.ist) existent \emph{dans le même dossier
+  que le cours édité} ; si ce n'est pas le cas, aller dans le dossier
+  \texttt{TeX} que vous avez récupéré sur le ZIP, l'ouvrir, ouvrir le
+  dossier \texttt{PolyTeX} qu'il contient, et \emph{copier} (et non
+  déplacer) les fichiers concepts.ist et notions.ist dans le dossier de
+  votre cours ;
+
+  Si l'on choisit \emph{Options de sortie}, Alpha propose de changer les
+  options de support (impression ou écran) et de version (finale ou
+  intermédiaire).
+
+\item une seconde partie pour entrer les instructions de \polytex. Le menu
+  propose l'instruction \verb|\titrecours{}{}{}| puis quatre parties : une
+  partie pour les chapitres, une pour les sections, une pour les grains, et
+  enfin une pour les renvois. \emph{Chapitre d'un document} inscrit
+\begin{verbatim} \unchapitre{o}o \end{verbatim} et il faut alors entrer le
+titre du chapitre comme argument de la commande. \emph{Exemple} inscrit
+\begin{verbatim} \chapitreexemples \end{verbatim} et idem pour les autres.
+Le principe est le même pour les autres instructions.
+\end{itemize}
+
+Attention ! Le nom d'un fichier correspondant à un cours doit toujours
+posséder le suffixe \texttt{.tex}.
+
+\end{ungrain}
+
+\begin{ungrain}[compilationCours]
+{Compiler le texte source}
+{Compilation du cours}
+
+Une fois le texte édité, il faut le compiler avec le moteur
+\TeX/\LaTeX. Pour cela, sur alpha, il suffit de faire Pomme T, T pour
+\emph{typesetting}. A ce moment, la fenêtre de \oztex\ s'ouvre et la
+compilation du votre fichier s'effectue.
+
+Quand le fichier a été compilé $2$ fois, il faut revenir sur Alpha et lancer
+la construction des index. Pour cela, il faut tout d'abord appliquer le
+programme Polytexindex sur le fichier \emph{concepts.idx}. Sinon, on risque
+d'avoir des entrées redondantes dans l'index. Il suffit pour cela de
+doublecliquer sur l'icone du programme.
+
+Ensuite, il faut lancer \emph{makeindex} sur le fichier \emph{concepts.idx}
+qui a été construit dans la directory courante du fichier source. Si vous
+avez posez vous-mêmes des index à l'aide de la commande
+\verb|\coursindex{...}|, vous devez lancer
+\emph{makeindex} sur \emph{notions.idx}. Dans le menu \emph{PolyTeX}
+d'Alpha, on trouvera une commande pour calculer ces index.
+
+
+Sous unix, les index sont engendrés à l'aide de fichiers de style,
+\emph{concepts.ist} pour les concepts et
+\emph{notions.ist} pour les notions par l'utilitaire \texttt{makeindex}. On
+tape donc :
+\begin{verbatim}
+makeindex -s concepts.ist concepts.idx
+makeindex -s notions.ist notions.idx
+-> si vous avez posé des index ;
+\end{verbatim}
+
+Si vous avez utilisé des références bibliographiques à l'aide de la commande
+\begin{verbatim}\coursreference{...}\end{verbatim}, vous devez lancer sous unix
+\emph{bibtex} sur le fichier source (dans le suffixe : vous exécutez
+\emph{bibtex toto} et non
+\emph{bibtex toto.tex}.
+
+Sur le Mac, vous revenez sur Alpha, consultez le menu \LaTeX, choisissez
+l'option \emph{LaTeX utilities} et appelez \emph{Bibtex toto}.
+
+Une fois cela fait, vous recompilez une fois le fichier source, et vous
+pouvez passer à la phase suivante.
+
+Quand la compilation est effectuée, un fichier \emph{.dvi} est
+produit. \emph{dvi} signifie \emph{DeVice Independant}. Il faut par
+conséquent calculer une version adaptée à votre \emph{driver} pour
+l'imprimer.
+
+Sur le Mac, dans le menu \emph{Tools} de \oztex, vous lancez alors
+\emph{dvips} qui produit à partir du \emph{.dvi} un fichier PostScript
+\emph{.ps} que vous pouvez envoyer à une imprimante par exemple.
+
+Sous unix, vous tapez
+\begin{verbatim}
+dvips toto.dvi
+\end{verbatim}
+
+En résumé, sous unix, les instructions à exécuter sont les suivantes :
+\begin{verbatim}
+latex toto.tex
+latex toto.tex
+polymakeindex concepts.idx
+makeindex -s concepts-ist concepts.idx
+makeindex -s notions-ist notions.idx
+-> si vous avez posé des index ;
+bibtex toto
+-> si vous avez des références ;
+latex toto.tex
+\end{verbatim}
+
+
+Sur le Mac :\\
+Pomme T sous Alpha pour appeler \LaTeX, deux fois ; \\
+Double cliquer l'icone de Conversions ; \\
+Appeler sous Alpha dans le menu PolyTeX:Production les commandes de
+makeindex ;\\
+Appeler sous Alpha dans le menu \emph{LaTeX} les commandes de \bibtex ;\\
+Pomme T sous Alpha pour appeler \LaTeX ;
+
+Lors de la compilation, \polytex\ construit de nombreux fichiers
+intermédiaires où il range les informations dont il a besoin pour la
+génération des tables et des liens. Il ne faut pas les supprimer.
+
+\end{ungrain}
+
+\begin{ungrain}[visualiserLeCours]
+{Visualiser le cours}
+{Visualisation du cours}
+\begin{renvois}
+\courscorrelat{productionPDF,editionSource}
+\end{renvois}
+
+Il existe deux manières de visualiser le cours selon l'option choisie dans
+la création du document :
+\begin{description}
+
+\item[Final :] le cours est compilé pour le distiller d'Acrobat ; il faut
+  donc créer la version PostScript du cours à l'aide de DVIPS, distiller
+  cette version, et la visualiser sous AcrobatReader ;
+\item[Intermédiaire :] le cours est compilé pour l'outil de visualisation
+  d'\oztex ; ainsi, dés que le fichier est compilé, on peut visualiser le
+  cours et tester la navigation induite (notamment pour vérifier la
+  cohérence de ses renvois) en tapant Pomme O sous \oztex.
+
+  L'intérêt d'une visualisation dans \oztex\ est de faire l'économie de la
+  conversion PostScript et PDF et de visualiser rapidement le
+  cours. Evidemment, la solution obtenue n'est pas portable, et la version
+  finale doit être produite en PDF.
+\end{description}
+
+\end{ungrain}
+
+\begin{ungrain}[productionPDF]
+{Produire le PDF}
+{Production du PDF}
+
+PostScript est un langage de page permettant de déclarer à une imprimante
+comment construire une impression. PDF, pour \emph{Portable Document Format}
+est la généralisation de PostScript au document hypertexte et hypermedia.
+
+Conçus et développés par le même constructeur, Adobe, il est possible de passer
+d'un fichier PostScript à un fichier PDF. Pour cela, on utilise l'outil
+AcrobatDistiller d'Adobe.
+
+Le fichier produit est un \emph{.pdf} qu'il possible de visualiser grâce à
+AcrobatReader ou AcrobatExchange. Ce dernier permet, en plus
+d'AcrobatReader, de poser des posts-it et, le cas échéant, d'ajouter des
+liens ou des outils de navigation (\emph{bookmarks, thumbnails, etc.}).
+
+Un des avantages du format PDF est qu'il donne à un document électronique
+visualisé à l'écran toute la qualité typographique que l'on peut trouver
+dans un document PostScript à l'impression. Notamment, cela permet d'éditer
+des typographies complexes pour les instruments classiques du Web comme les
+mathématiques ou la logique. C'est pourquoi PDF est le seul choix
+raisonnable à l'heure actuelle pour l'édition électronique de polycopiés.
+
+Pour obtenir une taille de page agréable à consulter sur écran, \polytex\
+produit une demi-page A4. Pour l'instant, le distiller ne sait pas
+reconnaître automatiquement que le texte n'occupe que la partie
+supérieure. Pour réduire la taille physique de la page du document PDF
+produit à des dimensions correspondant à la partie de la page effectivement
+occupée par le texte, il faut effectuer les instructions suivantes :
+\begin{itemize}
+\item ouvrir AcrobatExchange sur le document \emph{.pdf} ;
+\item choisir dans le menu \emph{Document} la commande \emph{Crop
+    Pages...} ;
+\item entrer \emph{4} dans le champ \emph{bottom} et laisser les
+  autres non modifiés ;
+\item choisir \emph{all} pour appliquer la commande ;
+\item cliquer sur \emph{OK} ;
+\end{itemize}
+
+\end{ungrain}
+
+\unesection{Installation de la chaîne}
+
+\begin{ungrain}[installEditeur]
+{L'éditeur}
+{Installation de l'éditeur}
+
+N'importe quel éditeur convient. Les choix suivants sont recommandés :
+\begin{itemize}
+\item pour les stations Unix, on choisira Emacs et AucTeX ;
+\item pour les Macintosh, on choisira Alpha de Peter Keleher ; on trouvera
+  également dans la distribution un fort utile cours introductif à \LaTeX :
+\begin{center}
+\verb|http://www.cs.umd.edu/~keleher/alpha.html|
+\end{center}
+\item pour les PC, on attendra d'avoir un Mac ou une station (un ordinateur,
+  quoi...) ;
+\end{itemize}
+
+\end{ungrain}
+
+\begin{ungrain}
+{Installation du ZIP}
+{Installation du ZIP}
+
+Un disquette ZIP de 100 Meg a été réalisée contenant tous les éléments
+composant la chaîne éditoriale. Elle comprend :
+\begin{itemize}
+\item l'éditeur AlphaLite configuré pour \polytex ; il fonctionne sur les
+  plates-formes 68000 et PowerPC ;
+\item un utilitaire, \texttt{Conversions}, permettant de convertir les index
+  et tables de matières intermédiaires ; cet utilitaire fait appel au
+  logiciel \texttt{PolyTeX Conversions}, également présent sur le ZIP ;
+\item la distribution complète d'\oztex -3 francisé ;
+\item une version 3.01 du Reader d'Acrobat, résolvant un bug pour la lecture
+  du PDF sur le Mac ; pour l'installer, il suffit de double cliquer sur
+  l'icone ;
+\item un fichier préférences dont il faut recopier le contenu (i.e. ouvrir
+  le fichier et sélectionner tous les fichiers qu'il contient) dans le
+  dossier Préférences du dossier système ;
+\end{itemize}
+
+On peut travailler à partir du ZIP. Il vaut mieux cependant recopier son
+contenu sur son disque dur. Mais attention, l'utilitaire de conversions ne
+fonctionne que sur le ZIP : il faut donc laisser le ZIP en place.
+
+Si cela n'est pas possible, il n'est pas possible d'utiliser l'utilitaire
+\texttt{Conversions} directement ; il faut alors recopier le logiciel
+\texttt{PolyTeX Conversions}, sélectionner tous les fichiers
+\texttt{toto.sc*, toto.ch*}, \texttt{concepts.idx} et \texttt{notions.idx},
+et glisser la sélection sur l'icone de \texttt{PolyTeX Conversions}. Il faut
+alors taper sur << Just Try >> autant de fois que nécessaire.
+
+\end{ungrain}
+
+\begin{ungrain}[installationLaTeX]
+{LaTeX}
+{Installation de LaTeX}
+
+\LaTeX\ est un logiciel accessible gratuitement sur le Web aux adresses
+suivantes :
+\begin{itemize}
+\item pour le Mac :
+ftp.supelec.fr:/pub/cs/distrib/
+\item pour les stations Unix :
+la distribution TeXmf de l'association Gutemberg ;
+\item pour les PC : idem que pour Unix ;
+\end{itemize}
+\end{ungrain}
+
+\chapitreexemples
+
+\begin{hyperexemple}[Exemple1]{Editer une bibliographie}
+\begin{renvois}
+\courscorrelat{renvoiRef}
+\end{renvois}
+
+Une bibliographie se présente ainsi :
+\begin{verbatim}
+@book{BotteroBOOK87,
+   author =    {Bottéro, Jean},
+   title =     {Mésopotamie L'écriture,
+                la raison et les dieux},
+   publisher = {Gallimard},
+   year =      1987,
+   address = {Paris},
+   series = {Bibliothèque des histoires},
+}
+
+@Book{Steinmetz:BOOK95,
+  author =       {Steinmetz, Ralf and Nahrstedt, Klara},
+  title =        {Mulitmedia : Computing,
+                  Communications and Applications},
+  publisher =    {Prentice Hall},
+  year =         1995
+}
+
+@Article{Adelhard:CMPB95,
+  author =       {Adelhard, K. and Eckem,
+                  R. and H\"ezel D. and Tretter, W.},
+  title =        {A prototype of a computerized patient record},
+  journal =      {Computer Methods and Programs in Biomedicine},
+  year =         1995,
+  volume =       48,
+  pages =        {115--119}
+}
+\end{verbatim}
+
+Quand \LaTeX\ rencontre une référence bibliographique
+\begin{verbatim}\coursreference{TotoBOOK87}\end{verbatim}, il conserve cette
+information pour être capable, lors de l'exécution de \bibtex, de construire
+l'entrée bibliographique et l'ajouter en annexe du document produit.
+
+\end{hyperexemple}
+
+\chapitredocuments
+
+\begin{hyperdoc}[Doc1]{Présentation de Télémaque}
+\begin{renvois}
+\courscorrelat{projetsPedagogiques,chartePedagogique}
+\end{renvois}
+
+Les nouveaux supports multimedia de la connaissance permettent aux
+institutions universitaires de reconsidérer dans de nouvelles conditions
+leur politique de structuration pédagogique et de diffusion du savoir.
+Cette politique peut se décliner en une \emph{charte pédagogique} concernant
+l'\emph{harmonisation} et la \emph{structuration} des contenus
+d'enseignement, en une \emph{charte graphique} concernant la
+\emph{visualisation} de ces contenus et enfin une \emph{charte télématique}
+concernant leur \emph{diffusion}.  Souvent, de telles chartes sont
+difficiles à concevoir et à appliquer dans la mesure où elles s'avèrent
+délicates à élaborer, difficiles à maîtriser, lourdes à appliquer.  Elles ne
+s'accompagent pas des outils qui permettraient de les respecter par l'acte
+même de l'édition des contenus.  Le projet {Télémaque} porte sur
+l'instrumentation de ces chartes en un environnement informatique pour
+l'édition électronique de polycopiés multimédia.
+\end{hyperdoc}
+
+\end{document}

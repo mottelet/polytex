@@ -1,0 +1,595 @@
+This is pdfTeX, Version 3.14159-14f-released-20000525 (Web2C 7.3.2x) (format=pdflatex 2000.9.13)  10 NOV 2000 12:48
+**/home1m/mottelet/PolyTeX/doc/presentation/ex7.tex
+(/home1m/mottelet/PolyTeX/doc/presentation/ex7.tex{/usr/local/teTeX/share/texmf
+/pdftex/config/pdftex.cfg}
+LaTeX2e <1999/12/01> patch level 1
+Babel <v3.6Z> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polytexbeta.cls
+Document Class: polytexbeta 2000/05/29
+(/usr/local/teTeX/share/texmf/tex/latex/base/ifthen.sty
+Package: ifthen 1999/09/10 v1.1b Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/teTeX/share/texmf/tex/latex/misc/version.sty)
+(/usr/local/teTeX/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 1999/12/08 v1.9x Standard LaTeX package
+
+(/usr/local/teTeX/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 1999/12/08 v1.9x Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 38.
+))
+jobname = poly/ex7-poly
+(/usr/local/teTeX/share/texmf/tex/latex/base/book.cls
+Document Class: book 1999/09/10 v1.4a Standard LaTeX document class
+(/usr/local/teTeX/share/texmf/tex/latex/base/bk12.clo
+File: bk12.clo 1999/09/10 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/teTeX/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 1999/10/13 v0.02r graphics/color for pdftex
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(/usr/local/teTeX/share/texmf/tex/latex/config/color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+(/usr/local/teTeX/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 1999/10/14 v6.66m Hypertext links for LaTeX
+\@linkdim=\dimen105
+\Hy@linkcounter=\count89
+\Hy@pagecounter=\count90
+
+(/usr/local/teTeX/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 1999/10/05 v0.6 PDFDocEncoding (Heiko Oberdiek)
+)
+Package hyperref Info: option `colorlinks' set `true' on input line 1338.
+Package hyperref Info: option `hyperindex' set `true' on input line 1338.
+Package hyperref Info: Bookmarks ON on input line 1387.
+Package hyperref Info: Hyper figures OFF on input line 1406.
+Package hyperref Info: Link nesting OFF on input line 1411.
+Package hyperref Info: Hyper index ON on input line 1414.
+Package hyperref Info: Plain pages ON on input line 1419.
+Package hyperref Info: Backreferencing OFF on input line 1426.
+
+Implicit mode ON; LaTeX internals redefined
+(/usr/local/teTeX/share/texmf/tex/latex/misc/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+\Fld@menulength=\count91
+\Field@Width=\dimen106
+\Fld@charsize=\dimen107
+\Choice@toks=\toks15
+\Field@toks=\toks16
+Package hyperref Info: Hyper figures OFF on input line 2026.
+Package hyperref Info: Link nesting OFF on input line 2031.
+Package hyperref Info: Hyper index ON on input line 2034.
+Package hyperref Info: backreferencing OFF on input line 2041.
+Package hyperref Info: Link coloring ON on input line 2044.
+\c@Item=\count92
+\c@Hfootnote=\count93
+)
+*hyperref using default driver hpdftex*
+(/usr/local/teTeX/share/texmf/tex/latex/hyperref/hpdftex.def
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/pifont.sty
+Package: pifont 1999/03/29 PSNFSS v.7.2 Pi font support : S Rahtz
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/upzd.fd
+File: upzd.fd 1998/07/06 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/upsy.fd
+File: upsy.fd 1998/07/06 font definitions for U/psy.
+))
+\Fld@listcount=\count94
+\@outlinefile=\write3
+)
+(/usr/local/teTeX/share/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen108
+\epsfysize=\dimen109
+)
+(/usr/local/teTeX/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+\headwidth=\dimen110
+)
+(/usr/local/teTeX/share/texmf/tex/latex/misc/multind.sty)
+(/usr/local/teTeX/share/texmf/tex/generic/babel/babel.sty
+Package: babel 1999/09/09 v3.6Z The Babel package
+
+(/usr/local/teTeX/share/texmf/tex/generic/babel/frenchb.ldf
+Language: frenchb 1999/08/18 v1.3g French support from the babel system
+
+(/usr/local/teTeX/share/texmf/tex/generic/babel/babel.def
+File: babel.def 1999/09/09 v3.6Z Babel common definitions
+\babel@savecnt=\count95
+\U@D=\dimen111
+)
+Package babel Info: Making : an active character on input line 126.
+Package babel Info: Making ; an active character on input line 127.
+Package babel Info: Making ! an active character on input line 128.
+Package babel Info: Making ? an active character on input line 129.
+))
+(/usr/local/teTeX/share/texmf/tex/latex/ae/ae.sty
+Package: ae 1998/11/17 1.0 Almost European Computer Modern
+
+(/usr/local/teTeX/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 1999/12/08 v1.9x Standard LaTeX package
+
+(/usr/local/teTeX/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 1999/12/08 v1.9x Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 38.
+)
+LaTeX Font Info:    Try loading font information for T1+aer on input line 96.
+
+(/usr/local/teTeX/share/texmf/tex/latex/ae/t1aer.fd
+File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
+)))
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polycop.sty
+Package: polycop 1999/07/07
+
+Package `polycop' <Wed Jul 7 23:22:31 CEST 1999>.
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyCommands.sty
+(/usr/local/teTeX/share/texmf/tex/latex/tools/verbatim.sty
+Package: verbatim 2000/01/07 v1.5m LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read1
+)
+(/usr/local/teTeX/share/texmf/tex/latex/misc/moreverb.sty
+Package: moreverb 1997/12/07 v2.2d.2 `more' verbatim facilities
+\verbatim@out=\write4
+\tab@position=\count96
+\tab@size=\count97
+\listing@line=\count98
+)
+\c@tocMainDepth=\count99
+\c@chapter@depth=\count100
+\c@chapter@absolute=\count101
+\c@chapter@absolute@plus=\count102
+\c@chapter@absolute@minus=\count103
+\tf@any=\write5
+\c@tocChapDepth=\count104
+\c@section@absolute=\count105
+\c@section@absolute@plus=\count106
+\c@section@absolute@minus=\count107
+\c@section@depth=\count108
+\tf@sect=\write6
+\c@tocSectDepth=\count109
+\c@grain=\count110
+\c@grain@depth=\count111
+\c@grain@absolute=\count112
+\c@grain@absolute@plus=\count113
+\c@grain@absolute@minus=\count114
+\c@page@plus=\count115
+\c@page@minus=\count116
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyPoly.sty)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyIndex.sty)
+\notions@idxfile=\write7
+\openout7 = `poly/ex7-poly-notions.idx'.
+
+
+Writing index file poly/ex7-poly-notions.idx 
+\noms@idxfile=\write8
+\openout8 = `poly/ex7-poly-noms.idx'.
+
+Writing index file poly/ex7-poly-noms.idx 
+\concepts@idxfile=\write9
+\openout9 = `poly/ex7-poly-concepts.idx'.
+
+Writing index file poly/ex7-poly-concepts.idx 
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyAnswers.sty
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/answers.sty
+Package: answers 1996/07/10
+
+Package `answers' <16 Dec 1997 17:05:29 BST>.
+Copyright (C) 1990,1994 Mike Piff, University of Sheffield, England
+)) (/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyExercices.sty
+\c@exercisechapcurr=\count117
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyHints.sty
+\c@tiplevel=\count118
+\c@tipnumber=\count119
+\boxaide=\box26
+\boxaidetotal=\box27
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyDocuments.sty
+\c@documentchapcurr=\count120
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyExemples.sty
+\c@examplechapcurr=\count121
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyRenvois.sty
+\labelliste=\toks19
+\textliste=\toks20
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyTheorem.sty
+Package: polyTheorem 2000/03/13
+
+Package `polyTheorem' <Mon Mar 13 15:13:14 CET 2000>.
+(/usr/local/teTeX/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count122
+\calc@Bcount=\count123
+\calc@Adimen=\dimen112
+\calc@Bdimen=\dimen113
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count124
+)
+(/usr/local/teTeX/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen114
+\extrarowheight=\dimen115
+\NC@list=\toks21
+\extratabsurround=\skip45
+\backup@length=\skip46
+)
+(/usr/local/teTeX/share/texmf/tex/latex/tools/theorem.sty
+Package: theorem 1995/11/23 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks22
+\theorem@bodyfont=\toks23
+\theorempreskipamount=\skip47
+\theorempostskipamount=\skip48
+
+(/usr/local/teTeX/share/texmf/tex/latex/tools/thp.sty
+File: thp.sty 1995/11/23 v2.2c Theorem extension package (FMi)
+))
+\c@theoreme=\count125
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/polyTheme.sty
+Package: polyTheme 1999/07/07
+
+Package `polyTheme' <Wed Jul 7 23:22:31 CEST 1999>.
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/vanillia.clo
+Using PolyTeX theme 'vanillia'
+(/usr/local/teTeX/share/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 1996/11/03 v2.2b
+
+(/usr/local/teTeX/share/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 1997/09/17 v2.2e
+\@emptytoks=\toks24
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 133.
+))
+(/usr/local/teTeX/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+
+(/usr/local/teTeX/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks25
+\ex@=\dimen116
+)
+\pmbraise@=\dimen117
+)
+\headerwidth=\skip49
+\referencesExtraIndent=\skip50
+\grainHeaderBox=\box28
+\fminibox=\box29
+\fminilength=\skip51
+\exampleCaptionEnvWidth=\skip52
+\exerciseCaptionEnvWidth=\skip53
+\documentCaptionEnvWidth=\skip54
+\coursCaptionEnvWidth=\skip55
+\slideCaptionEnvWidth=\skip56
+\otherLinksCaptionEnvWidth=\skip57
+\refbox=\box30
+\navBarBLHeight=\skip58
+\navBarULHeight=\skip59
+\c@pageprec=\count126
+\c@pagesuiv=\count127
+\pageBox=\box31
+\grainBox=\box32
+\navBarBLBox=\box33
+\navBarBRBox=\box34
+\navBox=\skip60
+\navBarULBox=\box35
+\pageBoxRaise=\skip61
+
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/times.sty
+Package: times 1999/03/29 PSNFSS v.7.2 Times font as default roman : S Rahtz
+)
+(/home1m/mottelet/latex/Inputs-Polpoth/polytexbeta/mathfont.sty
+Package: mathfont 1996/01/16{} math package for using Text Font as Maths fonts
+
+
+Mathfont : Warning -- non standard math fonts used!
+Mathfont: using T1/ptm/ italic and scaled for default `math italic' letters.
+\symtextletters=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `textletters' in version `normal'
+(Font)                  T1/ptm/m/it --> T1/ptm/m/it on input line 63.
+LaTeX Font Info:    Overwriting symbol font `textletters' in version `bold'
+(Font)                  T1/ptm/m/it --> T1/ptm/bx/it on input line 64.
+\symtextoperators=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `textoperators' in version `normal'
+
+(Font)                  T1/ptm/m/n --> T1/ptm/m/n on input line 120.
+LaTeX Font Info:    Overwriting symbol font `textoperators' in version `bold'
+(Font)                  T1/ptm/m/n --> T1/ptm/bx/n on input line 121.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 135.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 137.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 139.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 141.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 143.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 145.
+LaTeX Font Info:    Redeclaring math accent \check on input line 147.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 149.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 151.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 263.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> T1/ptm/bx/n on input line 263.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/ptm/bx/n on input line 263.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 264.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 265.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 265.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 265.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 266.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> T1/ptm/m/it on input line 266.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> T1/ptm/m/it on input line 266.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 267.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 267.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 267.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  T1/ptm/bx/n --> T1/ptm/bx/n on input line 268.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 269.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  T1/ptm/m/n --> T1/ptm/bx/n on input line 270.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  T1/ptm/m/it --> T1/ptm/bx/it on input line 271.
+)))
+\oddsidemarginvalue=\skip62
+\evensidemarginvalue=\skip63
+)
+No file poly/ex7-slides.aux.
+) (poly/ex7-poly.aux)
+\openout1 = `poly/ex7-poly.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT2/wncyr/m/n on input line 4.
+LaTeX Font Info:    Try loading font information for OT2+wncyr on input line 4.
+
+
+(/usr/local/teTeX/share/texmf/tex/latex/cyrillic/ot2wncyr.fd
+File: ot2wncyr.fd 1999/05/31 v3.2 Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 4.
+
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 1998/07/06 Fontinst v1.800 font definitions for T1/ptm.
+)
+(/usr/local/teTeX/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/local/teTeX/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count128
+\scratchcounter=\count129
+\scratchdimen=\dimen118
+\scratchskip=\skip64
+\scratchmuskip=\muskip10
+\scratchbox=\box36
+\scratchread=\read2
+\scratchwrite=\write10
+\nextbox=\box37
+\nextdepth=\dimen119
+\everyline=\toks26
+\!!counta=\count130
+\!!countb=\count131
+\recursecounter=\count132
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count133
+\nofMParguments=\count134
+)
+Package hyperref Info: Link coloring ON on input line 4.
+ (/usr/local/teTeX/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 1999/10/07 v2.17 Cross-referencing by name of section
+\c@section@level=\count135
+)
+(poly/ex7-poly.out) (poly/ex7-poly.out)
+\openout3 = `poly/ex7-poly.out'.
+
+LaTeX Info: Redefining \ref on input line 4.
+LaTeX Info: Redefining \pageref on input line 4.
+
+Output from handle poly/ex7-poly-exercise going to poly/ex7-poly-exercise.tex
+\poly/ex7-poly-exercise@file=\write11
+\openout11 = `poly/ex7-poly-exercise.tex'.
+
+Output from handle poly/ex7-poly-hints going to poly/ex7-poly-hints.tex
+\poly/ex7-poly-hints@file=\write12
+\openout12 = `poly/ex7-poly-hints.tex'.
+
+Output from handle poly/ex7-poly-document going to poly/ex7-poly-document.tex
+\poly/ex7-poly-document@file=\write13
+\openout13 = `poly/ex7-poly-document.tex'.
+
+Output from handle poly/ex7-poly-example going to poly/ex7-poly-example.tex
+\poly/ex7-poly-example@file=\write14
+\openout14 = `poly/ex7-poly-example.tex'.
+
+LaTeX Font Info:    Try loading font information for T1+phv on input line 6.
+(/usr/local/teTeX/share/texmf/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 1998/07/06 Fontinst v1.800 font definitions for T1/phv.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
+
+(/usr/local/teTeX/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
+
+(/usr/local/teTeX/share/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 1995/01/05 v2.2e AMS font definitions
+) (poly/ex7-poly.toc
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 2.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `U/msa/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+
+LaTeX Font Warning: Font shape `U/msb/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 3.
+
+)
+\tf@toc=\write15
+\openout15 = `poly/ex7-poly.toc'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[1
+
+{/usr/local/teTeX/share/texmf/dvips/config/pdftex.map}]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[2
+
+] (poly/ex7-poly.ch1)
+\openout5 = `poly/ex7-poly.ch1'.
+
+
+! pdfTeX warning (ext4): destination with the same identifier (name{page.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.7 \unesection{La premi^^e8re section}
+                                       
+Underfull \hbox (badness 10000) has occurred while \output is active
+
+ []
+
+[1
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 8.
+
+! pdfTeX warning (ext4): destination with the same identifier (name{page.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \penalty 
+l.14 \end{document}
+                    [2
+
+] (poly/ex7-poly-concepts.ind
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 7.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 10.
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[3
+
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[4
+
+
+] (poly/ex7-poly.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occured.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4796 strings out of 10530
+ 63817 string characters out of 442080
+ 116696 words of memory out of 263001
+ 7663 multiletter control sequences out of 10000+0
+ 72026 words of font info for 99 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 46i,10n,42p,309b,359s stack positions out of 300i,100n,500p,50000b,4000s
+{/usr/local/teTeX/share/texmf/dvips/base/8r.enc}
+Output written on ex7.pdf (6 pages, 10899 bytes).

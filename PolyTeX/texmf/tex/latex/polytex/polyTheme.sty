@@ -1,0 +1,47 @@
+%--------------------------------------------------------------------
+% Les thèmes de PolyTeX
+%--------------------------------------------------------------------
+
+\def\fileversion{2.52}
+\def\filedate{Wed Oct 29 11:17:11 EST 2003}
+\def\filename{polyTheme.sty}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{polyTheme}[2003/10/29]
+\typeout{Package `polyTheme' <\filedate>.}%%
+
+%% Réglage des options du style polyTheme
+%%
+
+%% Thème par défaut
+
+\edef\themeName{praline}%
+
+
+\DeclareOption{10pt}{%
+   \PassOptionsToClass{10pt}{\poly@base@class}
+}
+
+\DeclareOption{11pt}{%
+   \PassOptionsToClass{11pt}{\poly@base@class}
+}
+
+\DeclareOption{12pt}{%
+   \PassOptionsToClass{12pt}{\poly@base@class}
+}
+
+
+\DeclareOption*{%
+   \IfFileExists{\CurrentOption .clo}{%
+      \edef\themeName{\CurrentOption}%
+   }{}%
+}
+
+\ProcessOptions
+
+\typeout{Using PolyTeX theme '\themeName'}
+
+\AtBeginDocument{%
+   \csname\themeName Options\endcsname%
+}
+
+\input{\themeName.clo}

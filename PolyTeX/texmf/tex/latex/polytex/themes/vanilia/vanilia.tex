@@ -1,0 +1,87 @@
+\documentclass[frenchb]{article}
+\usepackage[T1]{fontenc}
+\usepackage{babel,ae}
+\title{Documentation du thème "vanillia" 1.3}
+\author{Stéphane Mottelet}
+\date{\today}
+
+\begin{document} 
+\maketitle
+\section{Introduction}
+La macro \verb$\vanilliaOptions$ peut \^etre définie dans le préambule du document. Elle permet de personnaliser le document (voir un exemple dans le dossier \verb$exemple2.x$).
+\section{Macros de personnalisation}
+\subsection{Agencement des boites de liens}
+En insérant \verb$\globalNavBoxLeft$ dans les options du thème la boite des liens globaux (sommaire, indexs, etc.) est placée à gauche (par défaut elle est à droite). 
+\subsection{Ent\^etes}
+Les ent\^etes sont par défaut en sans sérif. Pour les avoir en romain, insérer \verb$\romanHeaders$ dans les options du thème. En mode écran, Pour que l'ent\^ete d'un grain n'apparaisse pas dans le texte mais seulement dans la marge, insérer \verb$\grainHeaderInGrainBoxFalse$ dans les options.
+\subsection{Sauts de page}
+S'il ne faut pas insérer de saut de page automatique après chaque grain, insérer
+\verb$\newPageAfterGrainFalse$.
+\subsection{Numérotation des grains}
+Si les grains du cours doivent \^etre numérotés (par défaut ils ne le sont pas), insérer
+\verb$\grainsAreNumerotedTrue$ dans les options.
+\subsection{Couleurs}
+Voici les couleurs par défaut dans le thème "vanillia". J'espère
+que les noms sont suffisament explicites. Lorsque la macro
+\verb$\backgroundImage{fichier.ext}$ est utilisée dans les options du thème, avec
+un nom de fichier comme argument (fichier jpeg, png, tiff ou pdf)
+l'image correspondante est utilisée comme image de fond pour tout
+le document. Sinon, c'est un fond de couleur "backgroundColor" qui est
+utilisé. Les couleurs n'étant a priori utilisées qu'en mode écran, les redéfinitions sont insérées dans une structure \verb$\ifscreen .. \fi$.
+
+\begin{verbatim}
+\ifscreen
+   \definecolor{textColor}{rgb}{0,0,0}%
+   \definecolor{grainBoxColor}{rgb}{1,0.9647059,0.8784314}
+   \definecolor{bottomNavBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{topNavBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{refBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{globalNavBoxColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{disabledLinkColor}{rgb}{1,0.9,0.3}
+   %
+   \backgroundImage{}
+   \definecolor{backgroundColor}{rgb}{0.8752941,0.8258824,0.7235294}
+   %
+   \definecolor{linkColor}{rgb}{0,0,1}
+   \definecolor{anchorColor}{rgb}{0,0,1}
+   \definecolor{citeColor}{rgb}{0,0,1}
+   \definecolor{fileColor}{rgb}{0,0,1}
+   \definecolor{urlColor}{rgb}{0,0,1}
+   \definecolor{menuColor}{rgb}{0,0,1}
+   \definecolor{pageColor}{rgb}{0,0,1}
+   \definecolor{videoColor}{rgb}{0,1,0}
+   \definecolor{soundColor}{rgb}{0,1,0}
+\fi
+\end{verbatim}
+
+\subsection{Autres possibilités}
+On peut aussi changer les polices par défaut (Computer Modern). On peut insérer dans le préambule (ou bien dans les options du thème) 
+\begin{verbatim}
+\usepackage{times}
+\usepackage{newcent}
+\usepackage{utopia}
+\usepackage{palatino}
+\end{verbatim}
+Si vous désirez utiliser une police différente suivant le support, par exemple
+\verb$newcent$ pour l'écran et \verb$times$ pour l'impression, insérez
+\begin{verbatim}
+\ifprint
+   \usepackage{times}
+\else
+   \usepackage{newcent}
+\fi
+\end{verbatim}
+dans les options du thème. De m\^eme, les options \verb$10pt$, \verb$11pt$ et 
+ \verb$12pt$ sont possibles (à ajouter dans les options du \verb$\documentclass$).
+
+\bigskip
+
+Il n'est pas possible de citer ici toutes
+les autres macros. J'invite tous ceux qui le peuvent a jeter un oeil 
+dans le fichier \verb$vanillia.clo$ pour connaitre le
+nom des macros. Pour les autres : décrivez-moi ce que vous voulez faire, je
+vous indiquerai quel est la macro pouvant le faire, le cas échéant.
+
+\bigskip
+Stéphane Mottelet, Mon Dec  4 14:50:10 CET 2000.
+\end{document}

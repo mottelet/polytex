@@ -1,0 +1,529 @@
+\documentclass[ecran,final,10pt,propre,transparent]{polytex}
+
+\newcommand{\polytex}{Poly\TeX}
+\newcommand{\oztex}{Oz\TeX}
+\newcommand{\bibtex}{Bib\TeX}
+\newcommand{\pdflatex}{pdf\LaTeX}
+
+\usepackage{times,alltt}
+\usepackage[latin1]{inputenc}
+\mathversion{bold}
+
+\newcommand{\vanilliaOptions}{%
+   \iftransparent
+      \definecolor{backgroundColor}{cmyk}{1,0.2,0,0} 
+      \definecolor{textColor}{rgb}{1,1,1}%
+      \definecolor{linkColor}{rgb}{1,.84,0}%
+      \definecolor{fileColor}{rgb}{1,.84,0}%
+      \definecolor{refBarColor}{cmyk}{1,0.2,0,.05}
+      \setlength{\parindent}{0pt}
+      \renewcommand{\thepage}{\textcolor{textColor}{\sffamily\arabic{page}}}
+   \fi
+}
+
+\renewcommand{\emph}[1]{%
+   \colorbox{red}{\vphantom{p}#1}%
+}
+
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\yellow}[1]{\textcolor{yellow}{#1}}
+
+\begin{document}
+
+\titrecours
+{Présentation de la chaîne éditoriale \polytex}
+{Outil d'écriture multisupport d'un cours imprimé, d'un
+cours électronique, d'un cours sur transparent.
+}
+{Stéphane MOTTELET}
+{Université de Technologie de Compiègne}
+{Novembre 2000}
+
+\begin{untransparent}{PolyTeX, un environnement éditorial}
+\vfill
+\polytex : \textcolor{yellow}{chaîne éditoriale} de production de
+cours matérialisés sur des supports électroniques ou physiques.
+\vfill
+\begin{itemize}
+\item un éditeur de \emph{texte structuré} mais \emph{non formatté} 
+\item un \textcolor{yellow}{processeur de texte}, \textcolor{green}{\LaTeX} ou \pdflatex, utilisant le style \textcolor{green}{PolyTeX}
+\vfill
+\textcolor{yellow}{options} : impression ou écran, polycopié ou transparents
+\vfill      
+\item \textcolor{yellow}{Un outil de visualisation} (papier, \textcolor{green}{Acrobat Reader}, Browser)
+\end{itemize}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{Les différentes plate-formes}
+\vfill
+PolyTeX est disponible sous :
+\vfill
+\begin{itemize}
+\item Unix/linux, distribution \green{TeTeX + nedit}
+\item Windows, distribution \green{MikTeX +  WinEdt}
+\item MacOs, distribution \green{OzTeX + Alpha}
+\end{itemize}
+\vfill
+\begin{center}
+\emph{http://www.ema.utc.fr/polytex/}
+\end{center}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{Les réalisation actuelles}
+\vfill
+\begin{itemize}
+\item \green{Université de Technologie de Compiègne}
+\begin{itemize}
+\item Mécanique, Chimie, Thermodynamique, Electrotechnique, Anglais, \emph{Mathématiques 1er cycle}, Analyse numérique, Optimisation.
+\end{itemize}
+\item Université de Technologie de Troyes
+\item Insa de Rennes
+\item ...
+\end{itemize}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{Historique - projets pédagogiques} 
+\vfill
+\begin{itemize}
+\item \green{DICIT} : Dipl\^ome en Ingéniérie de communication Industrielle et Technologique. Formation à distance
+\vfill
+\begin{center}
+Besoin de \emph{cours électroniques} téléchargeables
+\end{center}
+\vfill
+\item \green{Télémaque} : projet d'environnement éditorial de production de
+cours.
+\vfill 
+\begin{center}
+normes de \emph{structuration logique}\\
+charte pédagogique\\
+modules \emph{autonomes}
+\end{center}
+\vfill
+\yellow{\polytex\ est un environnement éditorial élémentaire permettant d'élaborer
+et de tester ces concepts}
+\end{itemize}
+\end{untransparent}
+%
+\begin{untransparent}{Historique - Développement de \polytex}
+\vfill
+\begin{itemize}
+\item Outils standards, gratuits ou shareware (\LaTeX, Acrobat Reader).
+\item Mise au point rapide du prototype (40 jours).
+\end{itemize}
+\vfill
+\begin{center}
+Réécriture à 99\% durant l'été 2000
+\end{center}
+\end{untransparent}
+%
+\begin{untransparent}{Historique - points forts / points faibles}
+\vfill
+Points forts : 
+\vfill
+\begin{itemize}
+\item L'auteur a un travail de rédaction et de structuration et non de mise en forme
+\item Elaboration rapide de nouveaux Thèmes
+\item Evolutivité (XML,...)
+\end{itemize}
+\vfill
+Points faibles :
+\vfill
+\begin{itemize}
+\item Pas d'éditeur dédié.
+\item Pas de prise en charge de la gestion et de la cohérence des textes produits.
+\end{itemize}
+\end{untransparent}
+%
+\begin{untransparent}{}
+\end{untransparent}
+\begin{untransparent}{Charte pédagogique et autres chartes associées}
+\vfill
+Règles à respecter lors de la conception et de la
+rédaction d'un support de cours (structuration, balises, parcours)
+\vfill
+Normes déterminant la manière dont il faut
+physiquement réaliser un document pédagogique sur un
+support matériel (interaction)
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{Charte d'interaction}
+\vfill
+Support papier : charte graphique (règles typographiques)
+\vfill
+Support éléctronique : charte graphique + charte de navigation
+\vfill
+\begin{center}
+Charte de navigation = différents parcours de lecture
+\end{center}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{PolyTeX et les chartes}
+\begin{renvois}
+\begin{listeRenvois}{Thèmes}
+\item \href{file:exemplePlain.pdf#page.7}{plain}
+\item \href{file:exempleVanillia.pdf#page.5}{vanillia}
+\end{listeRenvois}
+\end{renvois}
+\vfill
+Charte de structuration stabilisée depuis la version 1.5
+\vfill
+Charte d'interaction déclinée suivant différents \emph{Thèmes}
+\vfill
+\begin{center}
+La liste des thèmes disponibles ne demande \\qu'à s'enrichir !
+\end{center}
+\vfill
+%\begin{center}
+%\end{center}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{}
+\end{untransparent}
+%
+\begin{untransparent}{PolyTeX - les outils}
+\begin{center}
+éléments textuels
+\end{center}
+$$\includegraphics[width=1cm]{flecheEnbas}$$
+\begin{center}
+Structures de programmation \LaTeX\  \yellow{(structuration logique)}
+\end{center}
+$$\includegraphics[width=1cm]{flecheEnbas}$$
+\begin{center}
+Chaine éditoriale \yellow{(formatage graphique)}
+\end{center}
+$$\includegraphics[width=1cm]{flecheEnbas}$$
+\begin{center}
+Document structuré graphiquement
+\end{center}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[\yellow{ecran}]\{polytex\}
+\(\backslash\)begin\{document\}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+\yellow{\(\backslash\)begin\{ungrain\}\green{[grain1]}\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+\yellow{\(\backslash\)end\{ungrain\}}
+%
+%
+%
+%
+%
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex2.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+\yellow{\(\backslash\)tableofcontents}
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+%
+%
+%
+%
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex3.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+\(\backslash\)tableofcontents
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+\yellow{{\(\backslash\)begin\{ungrain\}\green{[grain2]}\{La suite\}\{suite\}}}
+Une suite, à défaut d'une fin.
+\yellow{{\(\backslash\)end\{ungrain\}}}
+%
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex4.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+\(\backslash\)tableofcontents
+\yellow{\(\backslash\)unesection\{La première section\}}
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+{{\(\backslash\)begin\{ungrain\}[grain2]\{La suite\}\{suite\}}}
+Une suite, à défaut d'une fin.
+{{\(\backslash\)end\{ungrain\}}}
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex5.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+\(\backslash\)tableofcontents
+\yellow{\(\backslash\)unchapitre\{Le premier chapitre\}}
+{\(\backslash\)unesection\{La première section\}}
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+{{\(\backslash\)begin\{ungrain\}[grain2]\{La suite\}\{suite\}}}
+Une suite, à défaut d'une fin.
+{{\(\backslash\)end\{ungrain\}}}
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex6.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[\yellow{impression}]\{polytex\}
+\(\backslash\)begin\{document\}
+\(\backslash\)tableofcontents
+{\(\backslash\)unchapitre\{Le premier chapitre\}}
+{\(\backslash\)unesection\{La première section\}}
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+{{\(\backslash\)begin\{ungrain\}[grain2]\{La suite\}\{suite\}}}
+Une suite, à défaut d'une fin.
+{{\(\backslash\)end\{ungrain\}}}
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex7.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+ ...
+\yellow{\(\backslash\)chapitreexercices}
+\yellow{\(\backslash\)begin\{hyperexercice\}}\green{[exo1]}\yellow{\{Question facile\}}
+Quelle est la couleur du cheval blanc
+d'Henri IV ?
+\yellow{\(\backslash\)end\{hyperexercice\}}
+%
+%
+%
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex8.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\vfill
+\begin{alltt}
+  {\(\backslash\)begin\{renvois\}}
+   ...
+   ...
+  {\(\backslash\)end\{renvois\}}
+\end{alltt}
+\vfill
+\begin{center}
+    \yellow{baliser les liens que possède le grain avec d'autres éléments du cours}
+\end{center}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+\(\backslash\)documentclass[ecran]\{polytex\}
+\(\backslash\)begin\{document\}
+...
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+  \yellow{\(\backslash\)begin\{renvois\}}
+    \yellow{\(\backslash\)coursexercice\green{\{exo1\}}}
+  \yellow{\(\backslash\)end\{renvois\}}
+  Un commencement est un moment très délicat.
+{\(\backslash\)end\{ungrain\}}
+...
+...
+\(\backslash\)end\{document\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex9.pdf#debut}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+%
+\begin{untransparent}{Ecriture d'un document \polytex\ pas à pas}
+\begin{alltt}
+...
+{\(\backslash\)begin\{ungrain\}[grain1]\{Le début\}\{début\}}
+  {\(\backslash\)begin\{renvois\}}
+    {\(\backslash\)coursexercice\green{\{exo1\}}}
+  {\(\backslash\)end\{renvois\}}
+  Un commencement est un moment très délicat.
+  \yellow{\(\backslash\)begin\{hyperexercice\}}\green{[exo1]}\yellow{\{Question facile\}}
+  Quelle est la couleur du cheval blanc
+  d'Henri IV ?
+  \yellow{\(\backslash\)end\{hyperexercice\}}
+{\(\backslash\)end\{ungrain\}}
+...
+\end{alltt}
+\begin{flushright}
+\href{file:ex10.pdf#debut}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+%
+\begin{untransparent}{Les exercices avec aides et solutions}
+\vfill
+\begin{alltt}
+  {\(\backslash\)begin\{aide\}}
+   ...
+   ...
+  {\(\backslash\)end\{aide\}}
+\end{alltt}
+\vfill
+\begin{center}
+    \yellow{ajouter des aides progressives à un exercice}
+\end{center}
+\vfill
+\end{untransparent}
+%
+%
+\begin{untransparent}{Les exercices avec aides et solutions}
+\begin{alltt}
+{\(\backslash\)begin\{hyperexercice\}}\green{[exo1]}{\{Question facile\}}
+  Quelle est la couleur du cheval blanc
+  d'Henri IV ?
+  \yellow{\(\backslash\)begin\{aide\}}
+    C'est une couleur claire
+  \yellow{\(\backslash\)end\{aide\}}
+  \yellow{\(\backslash\)begin\{aide\}}
+    C'est m\^eme la plus claire des couleurs
+  \yellow{\(\backslash\)end\{aide\}}
+{\(\backslash\)end\{hyperexercice\}}
+\end{alltt}
+\begin{flushright}
+\href{file:ex12.pdf#exo1}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{}
+\end{untransparent}
+%
+\begin{untransparent}{Le multimedia et \polytex}
+\begin{alltt}
+\(\backslash\)begin\{ungrain\}\{Du multimédia !\}\{multimédia\}
+\yellow{\(\backslash\)polySound\{sound.wav\}
+\{/ShowControls true /Mode /Open\}
+\{Cliquer ici pour entendre un son\}}. Voici 
+maintenant une \yellow{\(\backslash\)polyVideo\{Sample.mov\}\{video\}}. 
+La même vidéo, dont on affiche le "poster" :
+\(\backslash\)begin\{center\}
+\yellow{\(\backslash\)polyEmbVideo\{Sample.mov\}\{3cm\}\{3.5cm\}
+\{/FWScale [1 1] /FWPosition[0.5 0.5]\}}
+\(\backslash\)end\{center\}
+\(\backslash\)end\{ungrain\}
+\end{alltt}
+\begin{flushright}
+\href{file:ex12.pdf#multimed}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{}
+\end{untransparent}
+%
+\begin{untransparent}{La navigation}
+\vfill
+\begin{center}
+Navigation \yellow{physique} \green{(Acrobat Reader)}
+\end{center}
+\vfill
+\begin{center}
+Navigation \yellow{logique} \green{(\polytex)}
+\end{center}
+\vfill
+\end{untransparent}
+%
+\begin{untransparent}{La navigation logique}
+\vfill
+Navigation \yellow{globale}
+\vfill
+Navigation \yellow{contextuelle} 
+\vfill 
+Navigation \yellow{sémantique} d'un grain 
+\vfill
+\begin{flushright}
+\href{file:ex11.pdf}{\ensuremath{\times}}
+\end{flushright}
+\end{untransparent}
+%
+\begin{untransparent}{}
+\end{untransparent}
+%
+\begin{untransparent}{Production d'un cours}
+\vfill
+\begin{center}
+Saisie du texte source dans l'éditeur
+\end{center}
+$$\includegraphics[width=1cm]{flecheEnbas}$$
+\begin{center}
+Compilation avec \LaTeX\ ou pdf\LaTeX\\
+Génération des index
+\end{center}
+$$\includegraphics[width=1cm]{flecheEnbas}$$
+\begin{center}
+Visualisation avec Acrobat Reader
+\end{center}
+\vfill
+\end{untransparent}
+\end{document}

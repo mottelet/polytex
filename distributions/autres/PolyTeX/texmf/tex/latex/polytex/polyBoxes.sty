@@ -1,0 +1,87 @@
+% Macros prélevées et modifiées du fichier chngpage.sty
+
+\def\fileversion{2.52}
+\def\filedate{Wed Oct 29 11:17:11 EST 2003}
+\def\filename{polyBoxes.sty}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{polyBoxes}[2003/10/29]
+\typeout{Package `polyBoxes' <\filedate>.}%%
+
+
+\RequirePackage{chngpage,graphicx,color}
+
+% changement de \addtolength en \setlength
+
+\renewcommand{\changepage}[9]{%
+  \@ifmtarg{#1}{}{\setlength{\textheight}{#1}}%
+  \@ifmtarg{#2}{}{\setlength{\textwidth}{#2}}%
+  \@ifmtarg{#3}{}{\setlength{\evensidemargin}{#3}}%
+  \@ifmtarg{#4}{}{\setlength{\oddsidemargin}{#4}}%
+  \@ifmtarg{#5}{}{\setlength{\columnsep}{#5}}%
+  \ch@ngetext%
+  \@ifmtarg{#6}{\setlength{\topmargin}{#6}}%
+  \@ifmtarg{#7}{\setlength{\headheight}{#7}}%
+  \@ifmtarg{#8}{\setlength{\headsep}{#8}}%
+  \@ifmtarg{#9}{\setlength{\footskip}{#9}}%
+}
+
+\newcommand{\new@poly@pagestyle}[1]{%
+   \expandafter\let\csname#1@oddCommands\endcsname\@empty%
+   \expandafter\let\csname#1@evenCommands\endcsname\@empty%
+   \expandafter\def\csname ps@#1\endcsname{%
+      \csname#1@extraCommands\endcsname%
+      \def\@evenhead{
+         \csname#1@evenCommands\endcsname\hfill%
+      }%
+      \def\@oddhead{%
+         \csname#1@oddCommands\endcsname\hfill%
+      }%
+      \def\@evenfoot{}%
+      \def\@oddfoot{}%
+   }%
+}
+
+\newcommand{\addtobox}[2][odd]{%
+   \expandafter\g@addto@macro\csname#2@#1Commands\endcsname%
+}
+
+\newsavebox{\poly@box}
+\newlength{\h@shift}
+\newlength{\v@shift}
+
+\newcommand{\add@box}[6][odd]{%
+   \expandafter\gdef\csname process#2#3\endcsname{%
+      \begin{lrbox}{\poly@box}%
+         #6%
+      \end{lrbox}%
+   }%
+   \ifthenelse{\equal{#1}{odd}}{%
+   \addtobox[odd]{#2}{%
+      \csname process#2#3\endcsname%
+      \makebox[0cm][l]{%
+         \setlength{\h@shift}{-\the\oddsidemargin+#4-\hoffset-1in}%
+	 \setlength{\v@shift}{+#5-\paperheight+\topmargin+\headheight+\voffset+1in}%
+	 \hspace*{\h@shift}%
+	 \raisebox{\v@shift}[0cm][0cm]{\usebox{\poly@box}}%
+      }%
+   }}{%
+   \addtobox[even]{#2}{%
+      \csname process#2#3\endcsname%
+      \makebox[0cm][l]{%
+         \setlength{\h@shift}{-\the\evensidemargin+#4-\hoffset-1in}%
+	 \setlength{\v@shift}{+#5-\paperheight+\topmargin+\headheight+\voffset+1in}%
+	 \hspace*{\h@shift}%
+	 \raisebox{\v@shift}[0cm][0cm]{\usebox{\poly@box}}%
+      }%
+   }
+   }
+}%
+
+\newcommand{\add@box@color}[6]{%
+   \add@box{#1}{#2}{#3}{#4}{%
+      \begingroup%
+         \fboxsep 0pt%
+         \colorbox{#5}{#6}%
+      \endgroup%
+   }%
+}

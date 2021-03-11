@@ -1,0 +1,12 @@
+Pour installer PolyTeX, il suffit de taper
+
+sudo make install
+
+-Linux
+
+Si vous utilisez NEDIT pensez à mettre à jour le mode PolyTeX (voir
+dans le repertoire unix/nedit). 
+
+-OSX
+
+Si vous utilisez TeXShop pensez à importer les macros (Macros/Ouvrir l'éditeur des macros puis Macros/Ajouter une macro à partir du fichier). Le fichier se trouve dans le répertoire PolyTeX/MacOSX.

@@ -1,0 +1,53 @@
+\def\fileversion{2.52}
+\def\filedate{Wed Oct 29 11:17:11 EST 2003}
+\def\filename{polyMedia.sty}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{polyMedia}[2003/10/29]
+\typeout{Package `polyMedia' <\filedate>.}%%
+
+\newlength{\hauteur}%
+\newlength{\largeur}%
+\newlength{\prof}%
+
+\newcommand{\polySound}[3]{%
+   \settowidth{\largeur}{#3}%
+   \settoheight{\hauteur}{#3}%
+   \settodepth{\prof}{#3}%
+   \raisebox{0cm}[\hauteur][0in]{\makebox[\largeur][l]{%
+   \ifx\pdfoutput\undefined%
+   		\href{run:#1}{\textcolor{videoColor}{#3}}
+   \else
+   \pdfannot width \largeur height \hauteur depth \prof{%
+         /Subtype /Movie
+         /Movie << /F (#1)>>
+     /A <<#2>>}%
+   \textcolor{soundColor}{#3}}%
+   \fi}%
+}
+
+\newcommand{\polyVideo}[2]{%
+   \settowidth{\largeur}{#2}%
+   \settoheight{\hauteur}{#2}%
+   \raisebox{0cm}[\hauteur][0in]{\makebox[\largeur][l]{%
+   \ifx\pdfoutput\undefined%
+		\href{run:#1}{\textcolor{videoColor}{#2}}
+   \else%
+   \pdfannot width \largeur height \hauteur depth 0pt{%
+         /Subtype /Movie
+         /Movie << /F (#1)>>
+     /A <</ShowControls true /FWScale [1 1] /FWPosition [0.5 0.5]>>}%
+   \textcolor{videoColor}{#2}}
+   \fi}%
+}
+
+\newcommand{\polyEmbVideo}[4]{%
+   \raisebox{0cm}[#3][0in]{\makebox[#2][l]{%
+   \ifx\pdfoutput\undefined%
+   \else
+   \pdfannot width #2 height #3 depth 0pt{%
+         /Subtype /Movie
+         /Movie << /F (#1) /Poster true>>
+     /A <</ShowControls true #4 >>}%
+   \fi%
+}}%
+}

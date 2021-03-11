@@ -1,0 +1,41 @@
+MAIN MENU: 144
+// Extracted from WinEdt 5
+
+MENU:&PolyTeX
+  Flags:0
+  Hint:
+  Utility:137
+    Item:Générer les indexs
+    Caption:Générer les indexs
+    File:%P\%N-poly.aux?%P\poly\%N-poly.aux
+    Path:%P
+    Definition:polyindex.bat %N
+    Image:93
+  Utility:137
+    Item:Générer la bibliographie
+    Caption:Générer la bibliographie
+    File:%P\%N-poly.aux?%P\poly\%N-poly.aux
+    Path:%P
+    Definition:polybib.bat %N
+    Image:94
+  Utility:137
+    Item:Générer le booklet
+    File:%P\%N.ps
+    Path:%P
+    Definition:polybooklet.bat %N
+    Image:37
+  Utility:521
+    Item:Visualiser le booklet
+    Caption:%N.booklet.ps - GSview
+    File:%P\%N.ps
+    Path:%P
+    Definition:%$('GSView'); %>"%P\%N.booklet.ps"
+    Tool Bar:98
+    Image:32
+  Utility:129
+    Item:Effacer les fichiers auxiliaires
+    Caption:Effacer les fichiers auxiliaires
+    Path:%P
+    Definition:polyclean.bat %N
+    Image:58
+END Menu:&PolyTeX

@@ -1,0 +1,69 @@
+\def\fileversion{2.52}
+\def\filedate{Wed Oct 29 11:17:11 EST 2003}
+\def\filename{polyPoly.sty}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{polyPoly}[2003/10/29]
+\typeout{Package `polyPoly' <\filedate>.}%%
+
+
+\poly@newif{appendix}{False}
+
+% Commande unchapitre
+
+\poly@newif{frontMatterExists}{False}
+
+\newcommand{\unchapitre}[2][nolabel]{%
+   \frontMatterExistsTrue%
+   \ifthenelse{\equal{#1}{nolabel}}{%
+      \start@section{chapter}{cours}{#2}%
+   }{%
+      \start@section[#1]{chapter}{cours}{#2}%
+   }%
+   \Ifopen{\jobname -exercise}{}{%
+	\Opensolutionfile{\jobname -exercise}%
+   }
+} 
+
+% Environnement unesection
+
+\newcommand{\unesection}[2][nolabel]{%
+   \frontMatterExistsTrue%   
+   \ifthenelse{\equal{#1}{nolabel}}{%
+      \start@section{section}{cours}{#2}%
+   }{%
+      \start@section[#1]{section}{cours}{#2}%
+   }%
+}  
+
+
+\newenvironment{ungrain}[3][nolabel]{% Grain de cours
+   \ifthenelse{\equal{#3}{}}{}{%
+	   \poly@write@aux{\aConceptExistsTrue}%
+   }%
+   \ifgrainsAreNumeroted%
+      \begin{un@grain}{#1}{#2}{#3}{cours}%
+   \else%
+      \begin{un@grain@star}{#1}{#2}{#3}{cours}%
+   \fi%
+}{%
+   \ifgrainsAreNumeroted%
+      \end{un@grain}%
+   \else%
+      \end{un@grain@star}%
+   \fi%
+}
+
+\newcommand{\coursgrainHyperCaption}[3]{%
+   \ifthenelse{\equal{#1}{nolabel}}{%
+      \hypertarget{\nospaces{#3}}{\relax}% 
+   }{%
+      \hypertarget{\nospaces{#1}}{\relax}%
+      \poly@label{\nospaces{#1}}{#3}%
+   }%
+   \refGrainDefTrue%
+   \index{concepts}{#3}%
+   \refGrainDefFalse%
+}
+
+%% Flags pour detecter si on se trouve dans un grain
+%% ou non.

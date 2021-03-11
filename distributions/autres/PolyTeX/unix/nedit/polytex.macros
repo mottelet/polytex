@@ -1,0 +1,24 @@
+nedit.shellCommands: \
+	Typeset@LaTeX:Alt+T::DS:\n\
+		xterm -e latex %\n\
+	Typeset PDF@LaTeX:Shift+Alt+T::DS:\n\
+		xterm -e pdflatex %\n\
+	Visualiser>le DVI@LaTeX:Alt+V::D:\n\
+		xdvi `echo % | polystrip` >&  /dev/null &\n\
+	Visualiser>le PDF@LaTeX:Shift+Alt+V::D:\n\
+		xpdf `echo % | polystrip`.pdf >& /dev/null &\n\
+	Visualiser>le PS@LaTeX:::D:\n\
+		ggv  `echo % | polystrip`.ps >& /dev/null &\n\
+	Visualiser>le booklet@LaTeX:::D:\n\
+		ggv  `echo % | polystrip`_booklet.ps \n\
+	Générer>Les indexs (concepts et notions)@LaTeX:::D:\n\
+		polyindex  `echo % | polystrip`\n\
+	Générer>Le PS@LaTeX:::D:\n\
+		dvips -t a4 `echo % | polystrip` -o\n\
+	Générer>Le booklet@LaTeX:::D:\n\
+		polybooklet `echo % | polystrip`\n\
+	Générer>La bibliographie@LaTeX:::D:\n\
+		polybib `echo % | polystrip`\n\
+	Effacer les fichiers auxiliaires@LaTeX:::D:\n\
+		polyclean `echo % | polystrip`\n
+

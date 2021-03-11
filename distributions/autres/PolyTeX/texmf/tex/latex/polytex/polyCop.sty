@@ -1,0 +1,36 @@
+%---------------------------------------------------------------------------
+% Le polycopie
+%---------------------------------------------------------------------------
+
+\def\fileversion{2.52}
+\def\filedate{Wed Oct 29 11:17:11 EST 2003}
+\def\filename{polyCop.sty}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{polyCop}[2003/10/29]
+\typeout{Package `polyCop' <\filedate>.}%%
+
+
+%% Commandes generiques : chapitres, sections, grains, renvois, indexs
+
+\usepackage{scalefnt}
+\RequirePackage{polyAnswers}
+\RequirePackage{polyCommands}
+\RequirePackage{polyPoly}
+\RequirePackage{polyIndex}
+\RequirePackage{polyExercices}
+\RequirePackage{polyHints}
+\RequirePackage{polyDocuments}
+\RequirePackage{polyExemples}
+\RequirePackage{polyRenvois}
+\RequirePackage{polyTheorem}
+
+%% On exclut les environnements "untransparent"
+
+\poly@ignore{untransparent}
+
+%% On recupere les references croisees de l'eventuel
+%% fichier compile en mode "transparent"
+
+\AtEndOfClass{%
+   \@input{\prefixe\oldjobname -slides.aux}%
+}

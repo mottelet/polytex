@@ -1,0 +1,1682 @@
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%
+% Stéphane Mottelet, Fri Jul 19 18:26:43 CEST 2002
+%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+
+\def\fileversion{1.5}
+\def\filedate{Fri Jul 19 18:26:43 CEST 2002} 
+\def\filename{article.clo}
+
+\RequirePackage{amssymb,amsbsy,polyBoxes}
+
+\def\btl{\ensuremath{\blacktriangleleft}}
+\def\rtl{\ensuremath{\blacktriangleright}}
+\def\utl{\ensuremath{\blacktriangle}}
+\def\dtl{\ensuremath{\blacktriangledown}}
+
+\newcommand{\pageNumberFont}{\sffamily\mdseries\tiny}
+
+\ifpolycopie
+	\def\fontFamily{\rmfamily}%
+\else%
+	\def\fontFamily{\sffamily}%
+\fi
+
+\ifPrint{\showIndexesFalse}{\showIndexesTrue}
+
+\def\polyfontFactor{1}
+\def\slidesfontFactor{1.5}
+
+\newcommand{\romanHeaders}{%
+   \renewcommand{\grainHeaderFont}{\rmfamily\bfseries}%
+   \renewcommand{\sectionHeaderFont}{\rmfamily\bfseries}%
+   \renewcommand{\chapterHeaderFont}{\rmfamily\mdseries}%
+   \renewcommand{\pageNumberFont}{\rmfamily\mdseries\tiny}%
+   \renewcommand{\referenceCaptionFont}{\rmfamily\mdseries}%
+   \renewcommand{\tocFont}{\rmfamily\mdseries}%
+}
+
+\newcommand{\sansSerifHeaders}{%
+   \renewcommand{\grainHeaderFont}{\sffamily\bfseries}%
+   \renewcommand{\sectionHeaderFont}{\sffamily\bfseries}%
+   \renewcommand{\chapterHeaderFont}{\sffamily\mdseries}%
+   \renewcommand{\pageNumberFont}{\sffamily\mdseries\tiny}%
+   \renewcommand{\referenceCaptionFont}{\sffamily\mdseries}%
+   \renewcommand{\tocFont}{\sffamily\mdseries}%
+}
+
+\newcommand{\romanfamily}{%
+\gdef\fontFamily{\rmfamily}%
+}
+
+
+\newcommand{\sansseriffamily}{%
+\gdef\fontFamily{\sffamily}%
+}
+
+%%
+%% Liste des auteurs, modification du 30/01/2002
+%%
+
+\newcounter{myitem}
+\newcommand{\correspondingAuthorItem}[4]{%
+	\stepcounter{myitem}\ifnum\c@myitem>1, \fi#1\footnote{e-mail : #2, tél : #3, fax : #4}%
+}%
+
+\newcommand{\authorItem}[4]{%
+	\stepcounter{myitem}\ifnum\c@myitem>1, \fi#1%
+}%
+
+\newcommand{\authorShortItem}[2]{%
+	\stepcounter{myitem}\ifnum\c@myitem>1, \fi#1%
+}%
+
+\newenvironment{authorsNamesList}{%
+	\setcounter{myitem}{0}%
+}{}
+
+\newenvironment{authorsShortNamesList}{%
+	\setcounter{myitem}{0}%
+}{}
+
+
+\poly@newif{titlePage}{True}
+\poly@newif{tableOfContents}{True}
+
+\newcommand{\processHeader}{%
+	\iftitlePage%
+		\emptyPageStyle%
+		\titlePage{\title}
+		{\subtitle}
+		{\authorsNames}		
+		{\small\expandafter\ifx\csname orgWWW\endcsname\relax%
+			\orgName%
+			\expandafter\ifx\csname orgStreet\endcsname\relax%
+			\else
+			\\\orgStreet%
+			\\\orgZip\space\orgCity,\space\orgCountry
+			\fi
+		 \else
+		 	\href{\orgWWW}{\orgName}%
+		\fi}
+		{\expandafter\ifx\csname orgLogo\endcsname\relax
+		 \else%
+		\includegraphics[width=3cm]{\orgLogo}%
+		 \fi}
+	\fi%
+	\startPageStyle%
+}
+
+\newcommand{\startPageStyle}{%
+	\iftransparent
+	   \requireNewPageAfter%
+	   	\ifprint
+      \pagestyle{slide@print}
+   	\else
+      \pagestyle{slide@screen}
+   \fi
+	\else
+   	\ifprint
+      \pagestyle{poly@print}
+      \thispagestyle{empty@print}
+   	\else
+      \pagestyle{poly@screen}
+   	\fi
+	\fi
+}
+
+
+\newcommand{\emptyPageStyle}{%
+\ifprint
+	\iftransparent%
+		\pagestyle{slide@print}%
+	\else%
+		\pagestyle{empty@print}%
+	\fi%
+\else
+   \pagestyle{empty@screen}
+\fi
+}%
+
+
+\newcommand{\titlePage}[5]{%
+\iftransparent
+\begingroup\sf\huge\mbox{}\vfill
+\fi
+\begin{center}
+\LARGE\bfseries #1\\#2\\
+~\\
+\large\mdseries #3\\
+~\\
+#4\\
+#5
+\end{center}
+\iftransparent
+\mbox{}\vfill\endgroup
+\fi
+}
+
+
+\newcommand{\titrecours}[5]{% conservé pour compatibilité avec polytex/latex
+% #1 : le titre du cours
+% #2 : le ou les auteurs ;
+% #3 : l'institution
+% #4 : la date
+% Quel est le cinquieme argument ????
+%
+\emptyPageStyle%
+\titlePage{#1}{#2}{#3}{#4}{#5}%
+\startPageStyle%
+}
+
+% \extrasfrenchb has been supressed since Babel 3.7h !
+
+\def\frenchNames{%
+   \def\contentsname{Sommaire}%
+   \def\exerciseName{Exercice}
+   \def\exampleName{Exemple}
+   \def\documentName{Document}
+   \def\exerciseNames{Exercices}
+   \def\exampleNames{Exemples}
+   \def\documentNames{Documents}
+   \def\coursName{Cours}
+   \def\fromChapterName{du chapitre}
+   \def\returnToGrainName{Retour au grain}
+   \def\hintName{Aide}
+   \def\solutionName{Solution}
+   \def\solutionOfExercise{Solution de l'exercice}
+   \def\questionName{Question}
+   \def\returnToExerciseName{Retour à l'exercice}
+   \def\conceptNames{Concepts}
+   \def\notionNames{Notions}
+   \def\nameNames{Noms}
+   \def\conceptIndexName{Index des concepts}
+   \def\notionIndexName{Index des notions}
+   \def\nameIndexName{Index des noms}
+   \def\slideName{Transparent}
+   \def\slideNames{Transparents}
+   \def\listofslidesname{Liste des transparents}
+   \def\proofName{Démonstration}
+   \def\theoremName{Théorème}
+   \def\oftheoremName{du théorème}
+   \def\totheoremName{au théorème}
+   \def\lemmaName{Lemme}
+   \def\oflemmaName{du lemme}
+   \def\tolemmaName{au lemme}
+   \def\propositionName{Proposition}
+   \def\ofpropositionName{de la proposition}
+   \def\topropositionName{à la proposition}
+   \def\corollaryName{Corollaire}
+   \def\ofcorollaryName{du corollaire}
+   \def\tocorollaryName{au corollaire}
+   \def\propertyName{Propriété}
+   \def\ofpropertyName{de la propriété}
+   \def\topropertyName{à la propriété}
+   \def\definitionName{Définition}
+   \def\remarkName{Remarque}
+   \def\principName{Principe}
+   \def\returnName{Retour}
+   \def\pageName{page}
+   \def\nextName{suivant}
+   \def\previousName{précédent}	
+	\def\abstractName{Résumé}
+	\def\keywordsName{Mots-clés}
+}
+
+
+\addto\extrasfrench{%
+	\frenchNames%
+}
+
+\addto\extrasfrenchb{%
+	\frenchNames%
+}
+
+\def\englishNames{%
+   \def\contentsname{Sommaire}%
+   \def\exerciseName{Exercice}
+   \def\exampleName{Exemple}
+   \def\documentName{Document}
+   \def\exerciseNames{Exercices}
+   \def\exampleNames{Exemples}
+   \def\documentNames{Documents}
+   \def\coursName{Cours}
+   \def\fromChapterName{du chapitre}
+   \def\returnToGrainName{Retour au grain}
+   \def\hintName{Aide}
+   \def\solutionName{Solution}
+   \def\solutionOfExercise{Solution de l'exercice}
+   \def\questionName{Question}
+   \def\returnToExerciseName{Retour à l'exercice}
+   \def\conceptNames{Concepts}
+   \def\notionNames{Notions}
+   \def\nameNames{Noms}
+   \def\conceptIndexName{Index des concepts}
+   \def\notionIndexName{Index des notions}
+   \def\nameIndexName{Index des noms}
+   \def\slideName{Transparent}
+   \def\slideNames{Transparents}
+   \def\listofslidesname{Liste des transparents}
+   \def\proofName{Démonstration}
+   \def\theoremName{Théorème}
+   \def\oftheoremName{du théorème}
+   \def\totheoremName{au théorème}
+   \def\lemmaName{Lemme}
+   \def\oflemmaName{du lemme}
+   \def\tolemmaName{au lemme}
+   \def\propositionName{Proposition}
+   \def\ofpropositionName{de la proposition}
+   \def\topropositionName{à la proposition}
+   \def\corollaryName{Corollaire}
+   \def\ofcorollaryName{du corollaire}
+   \def\tocorollaryName{au corollaire}
+   \def\propertyName{Propriété}
+   \def\ofpropertyName{de la propriété}
+   \def\topropertyName{à la propriété}
+   \def\definitionName{Définition}
+   \def\remarkName{Remarque}
+   \def\principName{Principe}
+   \def\returnName{Retour}
+   \def\pageName{page}
+   \def\nextName{suivant}
+   \def\previousName{précédent}	
+   \def\abstractName{Résumé}
+   \def\keywordsName{Keywords}
+}
+
+
+\addto\extrasenglish{%
+	\englishNames%
+}
+
+%%
+%% Profondeur des tables des matières
+%%
+
+\setcounter{tocMainDepth}{1}%
+\setcounter{tocSectDepth}{2}%
+
+\ifPrint{\setcounter{tocChapDepth}{2}%
+\setcounter{tocMainDepth}{2}
+}{%
+\setcounter{tocChapDepth}{1}%
+}%
+
+\newcommand{\tocFont}{\sffamily\mdseries}
+
+\DeclareTextFontCommand{\tocFontCmd}{\tocFont}
+
+%% Ce qui suit a pour but que la commande \tocFontCmd
+%% soit éliminée lorsqu'elle est utilisée dans un texte
+%% destiné à devenir une "pdf string" (exemple dans les
+%% tables des matières, les noms de sections sont récupérés
+%% pour faire les bookmarks). Ceci est fait automatiquement
+%% pour les commandes usuelles (\textrm{}, ...) mais il faut
+%% le rajouter pour les nouvelles commandes de séléction de
+%% fonts.
+
+\let\old@pdfstringdef\pdfstringdef
+\def\pdfstringdef#1#2{%
+\begingroup
+\let\tocFontCmd\@firstofone
+\let\tocFont\@empty
+\old@pdfstringdef{#1}{#2}
+\endgroup
+}
+
+%% Commandes relatives aux chapitres %%%%%%%%%%%%%%%%%%%
+%%
+%%
+%% \chapterCommand
+%% \chapterHeaderFont
+%%
+%% Environnements
+%%
+%% tableOfChapContents
+
+\renewcommand\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{2.0em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi%
+}
+
+\renewcommand{\l@section}{\@dottedtocline{1}{2.0em}{3.5em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{5.5em}{4.0em}}
+
+\renewcommand{\thechapter}{%
+   \Roman{chapter}%
+}
+
+\newcommand{\chapterHeaderFont}{\sffamily\mdseries}
+\newcommand{\chapterHeaderSize}{\huge}
+
+\newcommand{\chapterHeaderCommand}[2][@star]{%
+   \ifPrint{\begingroup%
+      \chapterHeaderFont\chapterHeaderSize%
+      \ifthenelse{\equal{#1}{@star}}{}{%
+          #1\space%
+       }%
+       #2%
+   \endgroup\medskip}{%
+      \mbox{}\par{%
+         \vspace{1.0cm}%
+         \chapterHeaderFont\chapterHeaderSize%
+         \ifthenelse{\equal{#1}{@star}}{%
+            \mbox{}\par%
+         }{%
+            \flushright\chaptername\space#1\par%
+         }%
+         \bigskip\noindent%
+	 \ifglobalNavBoxRight%
+	     \rlap{\hspace{\navBox}\begin{minipage}{\textwidth}\begin{flushright}#2\end{flushright}\end{minipage}}%
+	 \else%
+	    \mbox{}\hfill#2%
+	 \fi%
+      }%
+      \par\vspace{1.0cm}%
+   }%
+}
+
+\newenvironment{tableOfChapContents}{%
+\tocFont\small\vfill%
+}{\bigskip\vfill}
+
+
+\newcommand{\courschapterHeader}[3][@star]{%
+   \chapterHeaderCommand[#1]{#2}%
+   \begin{tableOfChapContents}%
+      \@startMinitocAny{\chapToc}%
+   \end{tableOfChapContents}%
+   \requireNewPageAfter%
+}
+
+\newcommand{\courschapterTocCaption}[3][@star]{%
+   \ifthenelse{\equal{#1}{@star}}{%
+      \addcontentsline{toc}{chapter}{\tocFontCmd{\bfseries#2}}%
+   }{%
+      \addcontentsline{toc}{chapter}{\tocFontCmd{\bfseries\numberline{#1}#2}}%
+   }%
+}
+
+\newcommand{\courssectionTocCaption}[3][@star]{%
+   \ifthenelse{\equal{#1}{@star}}{%
+      \addcontentsline{toc}{section}{\tocFontCmd{#2}}%
+      \addContentslineAny{\chapToc}{section}{\tocFontCmd{\bfseries#2}}%
+   }{%
+      \addcontentsline{toc}{section}{\tocFontCmd{\numberline{#1}#2}}%
+      \addContentslineAny{\chapToc}{section}{\tocFontCmd{\bfseries\numberline{#1}#2}}%
+   }%
+}
+
+\newcommand{\coursgrainTocCaption}[3][@star]{%
+   \ifthenelse{\equal{#1}{@star}}{%
+      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{#2}}%
+      \addContentslineAny{\chapToc}{\grain@section@name}{\tocFontCmd{#2}}%
+      \ifPrint{}{%
+      \ifnum\c@tocSectDepth>1
+         \ifnum\c@grain@depth=2
+            \addContentslineSect{\sectToc}{\grain@section@name}{\tocFontCmd{#2}}%
+         \fi%
+      \fi}%
+   }{%
+      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+      \addContentslineAny{\chapToc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+      \ifPrint{}{%
+      \ifnum\c@tocSectDepth>1
+         \ifnum\c@grain@depth=2
+            \addContentslineSect{\sectToc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+         \fi%
+      \fi}%
+   }%
+}
+
+\newcommand{\grainclearpage}{%
+   \clearpage%
+}
+\newcommand{\sectionclearpage}{%
+   \clearpage%
+}
+\newcommand{\chapterclearpage}{%
+    \ifPrint{\newpage{\pagestyle{empty@print}\cleardoublepage}}{\clearpage}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newsavebox{\even@mark}
+\newsavebox{\odd@mark}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{%
+   \ifsection@star
+      \global\sbox{\odd@mark}{\pageNumberFont#1}
+    \else%
+      \global\sbox{\odd@mark}{\pageNumberFont\thesection.~~#1}%
+    \fi%
+}%
+
+\renewcommand{\markboth}[2]{\global\sbox{\even@mark}{\pageNumberFont#1}\global\sbox{\odd@mark}{\pageNumberFont#2}}
+
+%% Commandes relatives au sommaire %%%%%%%%%%%%%%%%%%%
+%%
+%%
+%% \contentsname
+%% \tableofcontents
+%%
+%% Environnements
+%%
+%% tableOfContents
+
+\newenvironment{tableOfContents}[1]{%
+   \doNewPageIfRequired{chapter}%
+   \chapterHeaderCommand{#1}%
+   \markboth{#1}{#1}%
+   \tocFont\small%
+%   \ifPrint{\pagenumbering{roman}}{}%
+}{%
+   \chapterclearpage%
+   \markboth{}{}%
+%   \ifPrint{\pagenumbering{arabic}}{}%
+}
+
+
+
+\renewcommand{\tableofcontents}[1][\contentsname]{%
+   \tableOfContentsTargetTrue%
+   \begin{tableOfContents}{#1}%
+      \hypertarget{tableOfContents}{}%
+      \@starttoc{toc}%
+   \end{tableOfContents}%
+}
+
+%% Commandes relatives aux sections %%%%%%%%%%%%%%%%%%%%
+%%
+%% \sectionHeaderFont
+%% \sectionNumberFont
+%% \grainSectionHeader
+%% \grainSectionTocCaption
+
+%%
+%% Environnements
+%%
+%% tableOfSectContents
+%%
+
+\poly@newif{newPageAfterSection}{True}
+
+\newcommand{\sectionHeaderFont}{\sffamily\bfseries}
+\newcommand{\sectionHeaderSize}{\Large}
+
+\newcommand{\courssectionHeader}[3][@star]{%
+   \mbox{}\medskip\par\noindent%
+   \ifPrint{}{\hskip\parsep}%
+   \begingroup%
+   \ifthenelse{\equal{#1}{@star}}{}{%
+      \sectionHeaderFont\sectionHeaderSize#1\space%
+   }%
+   \sectionHeaderSize\sectionHeaderFont#2%
+   \endgroup%
+   \par\bigskip%
+   \ifPrint{}{%
+%      \ifthenelse{\equal{#1}{@star}}{}{%
+         \begin{tableOfSectContents}%
+            \@startMinitocSect{\sectToc}%
+         \end{tableOfSectContents}%
+%      }%
+      \requireNewPageAfter%
+   }%
+}
+
+\newenvironment{tableOfSectContents}{%
+\tocFont\ifPrint{\vfill}{\vfill}}
+{\ifPrint{vfill}{\vfill}}
+
+\aftersectionBody{%
+   \ifnewPageAfterSection\requireNewPageAfter\else\mbox{}\bigskip\par\noindent\fi%
+}
+
+%% Commandes relatives aux grains
+%%
+%% \grainKeywordsHeader
+%% \grainHeader
+%% \grainHeaderFont
+%% \marginLabel
+
+% Commande permettant d'insérer un texte fixé a priori avant les
+% mots clés.
+
+\newcommand{\grainKeywordsHeader}[1]{%
+\underline{Concept clé} :\space#1}
+
+% Commande permettant de créer une note marginale toujours correctement
+% alignée sur la ligne du texte d'appel.
+
+\newcommand{\marginLabel}[1]{\noindent\mbox{}\marginpar{\hspace{0pt}#1}}
+
+% Commande pour formater l'ent\^ete d'un grain. Les deux arguments sont
+% #1 : le titre du grain, #2 : les mots-cles. On peut redéfinir cette
+% commande pour réaliser un autre de type de formattage.
+
+\newcommand{\grainHeaderFont}{\sffamily\bfseries}
+
+% Header/footer des grains de cours
+
+\poly@newif{grainsAreNumeroted}{True}
+
+\poly@newif{newPageAfterGrain}{True}
+\poly@newif{grainHeaderInGrainBox}{True}
+
+\newsavebox{\grainHeaderBox}
+
+\newcommand{\coursgrainHeader}[4][@star]{%
+   \ifPrint{%
+      \ifthenelse{\equal{#1}{@star}}{%
+         \@startsection{\grain@section@name}{\c@grain@depth}{0pt}%
+	 {\bigskipamount}{\medskipamount}{\grainHeaderFont\large}*{#2}%
+      }{%
+         \@startsection{\grain@section@name}{\c@grain@depth}{0pt}%
+	 {\bigskipamount}{\medskipamount}{\grainHeaderFont\large}*{#1\space#2}%
+      }%
+      \ifnewPageAfterGrain\requireNewPageAfter\fi% 
+   }%
+   {%
+      \mbox{}\par\ifgrainHeaderInGrainBox%
+         \ifthenelse{\equal{#1}{@star}}{%
+            \@startsection{\grain@section@name}{\c@grain@depth}%
+	    {0pt}{0pt}{\bigskipamount}{\grainHeaderFont\large}*{#2}%
+          }{%
+            \@startsection{\grain@section@name}{\c@grain@depth}%
+	    {0pt}{0pt}{\bigskipamount}{\grainHeaderFont\large}*{#1\space#2}%
+          }%
+      \fi%
+      \gdef\grain@header{#2}%
+      \requireNewPageAfter%
+   }%
+}
+
+
+
+\newenvironment{coursgrainBody}{\fontFamily\scalefont{\polyfontFactor}}{}
+
+%%
+%% Commandes relatives aux 
+%%
+
+\newsavebox{\fminibox}
+\newlength{\fminilength}
+\newenvironment{fminipage}[1][\textwidth-2\fboxsep]%
+{\setlength{\fminilength}{#1}%
+\begin{lrbox}{\fminibox}\begin{minipage}[b]{\fminilength}}%
+{\end{minipage}\end{lrbox}\makebox[0cm][l]{\colorbox{refBarColor}{\usebox{\fminibox}}}}
+
+\newenvironment{renvois}{%
+   \noindent\obeyspaces%
+   \begin{fminipage}%
+      \raggedright%
+      \begin{list}{}{\labelwidth0pt\leftmargin0pt\rightmargin0pt}%
+         \item[]%
+}{%
+      \end{list}%
+      \smallskip
+   \end{fminipage}\catcode`\ =10%
+   \ifPrint{\par\vspace*{0.5\baselineskip}}%
+   {\par\vspace*{\baselineskip}}%
+}
+
+\newlength{\exampleCaptionEnvWidth}
+\newlength{\exerciseCaptionEnvWidth}
+\newlength{\documentCaptionEnvWidth}
+\newlength{\coursCaptionEnvWidth}
+\newlength{\slideCaptionEnvWidth}
+\newlength{\otherLinksCaptionEnvWidth}
+
+\ifPrint{%
+   \setlength{\exampleCaptionEnvWidth}{8em}%
+   \setlength{\exerciseCaptionEnvWidth}{8em}%
+   \setlength{\documentCaptionEnvWidth}{8em}%
+   \setlength{\coursCaptionEnvWidth}{16em}%
+   \setlength{\slideCaptionEnvWidth}{16em}%
+   \setlength{\otherLinksCaptionEnvWidth}{8em}%
+}{%
+   \setlength{\exampleCaptionEnvWidth}{8em}%
+   \setlength{\exerciseCaptionEnvWidth}{8em}%
+   \setlength{\documentCaptionEnvWidth}{8em}%
+   \setlength{\coursCaptionEnvWidth}{16em}%
+   \setlength{\slideCaptionEnvWidth}{16em}%
+   \setlength{\otherLinksCaptionEnvWidth}{8em}%
+}
+
+\newcommand{\referenceCaptionFont}{\sffamily\mdseries}
+
+\newcommand{\refCaptionHeader}[1]{%
+\ifPrint{\par\noindent}{\par\medskip\noindent}\referenceCaptionFont\small{\bfseries#1}\space:}
+
+\newcommand{\referenceCaptionItem}[3]{%
+   \ifthenelse{\equal{#3}{slide}}{%
+      \item \hyperref{file:\jobslides.\poly@extension}{}{#1}{#2}%
+   }{%
+      \iftransparent%
+         \item \hyperref{file:\jobpoly.\poly@extension}{}{#1}{#2}%
+      \else%
+         \item \hyperlink{#1}{#2}%
+      \fi%
+   }%
+}
+\newcommand{\referenceCaptionDisabledItem}[2]{\item #2}
+
+\newsavebox{\refbox}
+
+\def\documentRefHeader{\documentName}
+\def\exerciseRefHeader{\exerciseName}
+\def\exampleRefHeader{\exampleName}
+\def\coursRefHeader{\coursName}
+\def\slideRefHeader{\slideName}
+
+\newenvironment{leftbar}[1]{%
+   \ifPrint{%
+      \begin{tabular}[t]{|p{#1}@{}}}%
+   {}%
+}{%
+   \ifPrint{\vspace{0.2em}\end{tabular}}%
+   {~}%
+}
+
+
+\newenvironment{exampleRefCaptionEnv}%
+{\xdef\refheader{\exampleRefHeader\space}%
+\begin{leftbar}{\exampleCaptionEnvWidth}\begin{minipage}[t]{\the\exampleCaptionEnvWidth}\raggedright\refCaptionHeader{\exampleNames}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}  
+
+\newenvironment{exerciseRefCaptionEnv}%
+{\xdef\refheader{\exerciseRefHeader\space}%
+\begin{leftbar}{\exerciseCaptionEnvWidth}\begin{minipage}[t]{\the\exerciseCaptionEnvWidth}\raggedright\refCaptionHeader{\exerciseNames}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}
+
+\newenvironment{documentRefCaptionEnv}%
+{\xdef\refheader{\documentRefHeader\space}%
+\begin{leftbar}{\documentCaptionEnvWidth}\begin{minipage}[t]{\the\documentCaptionEnvWidth}\raggedright\refCaptionHeader{\documentNames}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}
+
+\newenvironment{coursRefCaptionEnv}%
+{\xdef\refheader{\relax}%
+\begin{leftbar}{\coursCaptionEnvWidth}\begin{minipage}[t]{\the\coursCaptionEnvWidth}\raggedright\refCaptionHeader{\coursName}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}
+
+\newenvironment{slideRefCaptionEnv}%
+{\xdef\refheader{\relax}%
+\begin{leftbar}{\slideCaptionEnvWidth}\begin{minipage}[t]{\the\slideCaptionEnvWidth}\raggedright\refCaptionHeader{\slideNames}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}
+
+\newenvironment{listeRenvois}[1]{%
+\begin{leftbar}{\otherLinksCaptionEnvWidth}\begin{minipage}[t]{\the\otherLinksCaptionEnvWidth}\raggedright\refCaptionHeader{#1}%
+\begin{list}{}{\labelwidth0pt\leftmargin0pt}\setlength{\parskip}{0.3em}\setlength{\baselineskip}{0em}}%
+{\end{list}\end{minipage}\end{leftbar}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Définitions pour les commandes relatives aux grains annexes
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\doAppendixStuff}{%
+   \ifappendix
+   \else%
+      \appendixTrue%
+      \setcounter{chapter}{0}
+      \renewcommand{\chaptername}{\appendixname}%
+      \renewcommand{\thechapter}{%
+         \Alph{chapter}%
+      }%
+   \fi%
+}
+
+\newcommand{\appendixgrainTocCaption}[3][@star]{%
+   \ifthenelse{\equal{#1}{@star}}{%
+%      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{#2}}%
+      \ifnum\c@tocSectDepth>1
+         \ifnum\c@grain@depth=2
+            \ifprint\else\addContentslineSect{\sectToc}{\grain@section@name}{\tocFontCmd{#2}}\fi%
+         \else\ifnum\c@grain@depth=1
+           \addContentslineAny{\chapToc}{\grain@section@name}{\tocFontCmd{#2}}%
+         \fi\fi%
+      \fi%
+   }{%
+%      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+      \ifnum\c@tocSectDepth>1
+         \ifnum\c@grain@depth=2
+           
+\ifprint\else\addContentslineSect{\sectToc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}\fi%
+         \else\ifnum\c@grain@depth=1
+           \addContentslineAny{\chapToc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+         \fi\fi%
+      \fi%
+   }%
+}
+
+\newcommand{\appendixgrainHeader}[4][@star]{%
+   \ifPrint{%
+      \@startsection{\grain@section@name}{\c@grain@depth}{0pt}%
+      {\bigskipamount}{\medskipamount}%
+      {\grainHeaderFont\large}*{\csname#4Name\endcsname\space#1\space\mdseries#2}%
+   }{%
+      \mbox{}\par\ifgrainHeaderInGrainBox%
+         \@startsection{\grain@section@name}{\c@grain@depth}%
+	 {0ex}{0pt}{\bigskipamount}{\grainHeaderFont\large}*%
+	 {\csname#4Name\endcsname\space#1\space\mdseries#2}%
+      \fi%   
+      \gdef\grain@header{\csname#4Name\endcsname\space#1\\\mdseries#2}%
+      \requireNewPageAfter%
+   }%
+}
+
+\newcommand{\appendixsectionHeader}[3][@star]{%  
+   \mbox{}\bigskip\par\noindent%
+   \ifPrint{}{\hskip\parsep}%
+   \begingroup%
+   \ifthenelse{\equal{#1}{@star}}{%
+      \sectionHeaderFont\sectionHeaderSize#2%
+   }{%
+      \sectionHeaderFont\sectionHeaderSize#1\space#2%
+   }%
+   \endgroup%
+   \par\bigskip\noindent%
+}
+
+\let\appendixsectionHeader\courssectionHeader
+
+%% Pour le retour a partir des exos (ou autres) definis
+%% dans un grain de cours
+
+\newcommand{\returnToGrainLink}[1]{%
+   \ifPrint{}{%
+      \ifintermediaire\else
+         \bigskip%
+         \begin{center}%
+            \hyperlink{#1}{\tocFontCmd{\returnToGrainName}}%
+         \end{center}%
+      \fi%
+    }%
+}
+
+\newenvironment{appendixgrainBody}{}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Exercices
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\exercisechapterTocCaption\courschapterTocCaption
+\let\exercisesectionTocCaption\courssectionTocCaption
+\let\exercisechapterHeader\courschapterHeader
+\let\exercisegrainBody\appendixgrainBody
+\let\endexercisegrainBody\endappendixgrainBody
+
+\newcommand{\exercisesOfChapterHeader}[1]{%
+   \exerciseNames\space\fromChapterName\space#1%
+}%
+
+\let\exercisegrainTocCaption\appendixgrainTocCaption
+\let\exercisegrainHeader\appendixgrainHeader
+\let\exercisesectionHeader\appendixsectionHeader
+
+%% Solutions et aides des exercices
+
+\newcommand{\solutionHeaderFont}{\sffamily\mdseries}
+\newcommand{\hintHeaderFont}{\sffamily\mdseries}
+\newcommand{\solutionFooterFont}{\sffamily\mdseries}
+\newcommand{\solutionLinkFont}{\sffamily\mdseries}
+\newcommand{\hintLinkFont}{\sffamily\mdseries}
+
+\newcommand{\solutionHeader}[1]{%
+   \ifintermediaire\else%
+      \clearpage%
+   \fi%
+   \begin{center}%
+         \solutionHeaderFont\solutionOfExercise\space#1%
+   \end{center}%
+   \bigskip%
+}
+
+\newcommand{\solutionFooter}[1]{%
+   \ifintermediaire\else
+     \bigskip%
+     \begin{center}%
+      \solutionFooterFont\hyperlink{aide#1}{\returnToExerciseName\space$\utl$}%
+     \end{center}%
+     \clearpage%
+   \fi
+}
+
+\newcommand{\solutionLink}{%
+   \solutionLinkFont\small\solutionName%
+}
+
+\newcommand{\hintHeader}[3]{%
+   \ifintermediaire\else
+      \clearpage%
+   \fi%
+   \ifthenelse{\equal{#2}{#3}}{%
+      \begin{center}%
+         \hintHeaderFont \hintName\space#1, \exerciseName\space#3%
+      \end{center}%
+   }{%
+      \begin{center}%
+         \hintHeaderFont \hintName\space#1, \questionName\space#2, \exerciseName\space#3%
+      \end{center}%
+   }%
+   \bigskip%
+}
+
+\let\hintFooter\solutionFooter
+
+\newcommand{\hintQuestionHeader}[1]{%
+   \hintLinkFont\small\questionName\space\makebox[1.5em][l]{#1}\space%
+}
+
+\newcommand{\hintLink}[1]{%
+   \hintLinkFont\small\hintName\space\makebox[1.0em][l]{#1}%
+}
+
+\newenvironment{hintsAndSolutionsBox}{%
+   \begin{list}{}{\setlength{\leftmargin}{1em}}%
+   \item[]%
+}{%
+   \end{list}%
+}
+
+%% Cet environnement balise le fichier contenant toutes les aides
+%% et solutions, qui est inclus à la fin du document.
+
+\newenvironment{hintsAndSolutionsEnv}{%
+\pagestyle{empty@screen}}{%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Documents
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\documentchapterTocCaption\courschapterTocCaption
+\let\documentsectionTocCaption\courssectionTocCaption
+\let\documentchapterHeader\courschapterHeader
+\let\documentgrainBody\appendixgrainBody
+\let\enddocumentgrainBody\endappendixgrainBody
+
+\newcommand{\documentsOfChapterHeader}[1]{%
+   \documentNames\space\fromChapterName\space#1%
+}%
+
+\let\documentgrainTocCaption\appendixgrainTocCaption
+\let\documentgrainHeader\appendixgrainHeader
+\let\documentsectionHeader\appendixsectionHeader
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Exemples
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\examplechapterTocCaption\courschapterTocCaption
+\let\examplesectionTocCaption\courssectionTocCaption
+\let\examplechapterHeader\courschapterHeader
+\let\examplegrainBody\appendixgrainBody
+\let\endexamplegrainBody\endappendixgrainBody
+
+\newcommand{\examplesOfChapterHeader}[1]{%
+   \exampleNames\space\fromChapterName\space#1%
+}%
+
+\let\examplegrainTocCaption\appendixgrainTocCaption
+\let\examplegrainHeader\appendixgrainHeader
+\let\examplesectionHeader\appendixsectionHeader
+
+%%
+%% Equations, figures et autres
+%%
+
+\renewcommand{\theequation}{\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+\atBeginchapter{%
+   \renewcommand{\theequation}{\thechapter.\arabic{equation}}%
+   \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
+}
+
+\atBeginsection{%
+   \renewcommand{\theequation}{\thesection.\arabic{equation}}%
+   \renewcommand{\thefigure}{\thesection.\arabic{figure}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Navigation
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Image de fond par défaut
+
+\def\backImg{sand1.jpg}
+\newcommand{\backgroundImage}[1]{%
+\def\backImg{#1}}
+
+% Couleurs utilisées par les barres de navigation
+% et autres boites.
+
+\ifprint
+   \definecolor{textColor}{rgb}{0,0,0}%
+   \definecolor{refBarColor}{rgb}{1,1,1}%
+   % couleurs hyperref
+   \definecolor{linkColor}{rgb}{0,0,0}  
+   \definecolor{anchorColor}{rgb}{0,0,0}
+   \definecolor{citeColor}{rgb}{0,0,0}
+   \definecolor{fileColor}{rgb}{0,0,0}
+   \definecolor{urlColor}{rgb}{0,0,0}
+   \definecolor{menuColor}{rgb}{0,0,0}
+   \definecolor{pageColor}{rgb}{0,0,0}
+   \definecolor{videoColor}{rgb}{0,0,0}
+   \definecolor{soundColor}{rgb}{0,0,0}
+\else% screen
+   \definecolor{textColor}{rgb}{0,0,0}%
+   \definecolor{grainBoxColor}{rgb}{1,0.9647059,0.8784314}
+   \definecolor{bottomNavBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{globalNavBoxColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{topNavBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{refBarColor}{rgb}{0.9725490,0.9176471,0.8039216}
+   \definecolor{disabledLinkColor}{rgb}{1,0.9,0.3}
+   \backgroundImage{}
+   \definecolor{backgroundColor}{rgb}{0.8752941,0.8258824,0.7235294} 
+   % couleurs hyperref
+   \definecolor{linkColor}{rgb}{0,0,1}
+   \definecolor{anchorColor}{rgb}{0,0,1}
+   \definecolor{citeColor}{rgb}{0,0,1}
+   \definecolor{fileColor}{rgb}{0,0,1}
+   \definecolor{urlColor}{rgb}{0,0,1}
+   \definecolor{menuColor}{rgb}{0,0,1}
+   \definecolor{pageColor}{rgb}{0,0,1}
+   \definecolor{videoColor}{rgb}{0,1,0}
+   \definecolor{soundColor}{rgb}{0,1,0}
+   \iftransparent
+      \definecolor{backgroundColor}{cmyk}{1,0.2,0,0} 
+      \definecolor{textColor}{rgb}{1,1,1}%
+      \definecolor{linkColor}{rgb}{1,.84,0}%
+      \definecolor{fileColor}{rgb}{1,.84,0}%
+      \definecolor{refBarColor}{cmyk}{1,0.2,0,.05}
+	  \color{textColor}
+	\fi
+\fi
+
+   \definecolor{codeColor}{rgb}{1,.6,0}
+
+
+\AtEndOfClass{%
+   \def\@linkcolor{linkColor}
+   \def\@anchorcolor{anchorColor}
+   \def\@citecolor{citeColor}
+   \def\@filecolor{fileColor}
+   \def\@urlcolor{urlColor}
+   \def\@menucolor{menuColor}
+   \def\@pagecolor{pageColor}
+}
+
+\newlength{\topNavBarHeight}
+
+\newcounter{pageprec}
+\newcounter{pagesuiv}
+
+\newsavebox{\pageBox}
+\newsavebox{\grainBox}
+\newsavebox{\navBarBLBox}
+\newsavebox{\navBarBRBox}
+
+%% Construction des styles de pages poly, slides et empty
+
+%%
+%% Définition de la taille du support, ecran ou papier
+%%
+
+\hoffset=-1in
+\voffset=-1in
+
+\ifprint%
+	\ifpolycopie
+		\paperheight=29.7cm%
+  		\paperwidth=21cm%
+	\else
+		\paperheight=15.75cm%
+   		\paperwidth=21cm%
+	\fi
+\else%
+   \paperheight=15.75cm%
+   \paperwidth=21cm%
+\fi%
+
+%%
+%% Déclaration des styles de page pour l'option écran
+%%
+
+\new@poly@pagestyle{poly@screen}
+\new@poly@pagestyle{slide@screen}
+\new@poly@pagestyle{empty@screen}
+
+\newlength{\navBox}
+\newlength{\headerwidth}
+
+%% Dimensions de la page pour le style de page polycopie/ecran
+
+\newlength{\textheightPolyScreen}
+\newlength{\textwidthPolyScreen}
+\newlength{\leftmarginPolyScreen}
+\newlength{\topmarginPolyScreen}
+
+%% Dimensions de la page pour le style de page transparents/ecran
+
+\newlength{\textheightSlideScreen}
+\newlength{\textwidthSlideScreen}
+\newlength{\leftmarginSlideScreen}
+\newlength{\topmarginSlideScreen}
+
+%% Dimensions de la page pour le style de page empty/ecran
+
+\newlength{\textheightEmptyScreen}
+\newlength{\textwidthEmptyScreen}
+\newlength{\leftmarginEmptyScreen}
+\newlength{\topmarginEmptyScreen}
+
+%% Dimensions de certaines boites de navigation
+
+\newlength{\globalNavX}
+\newlength{\globalNavY}
+\newlength{\globalNavWidth}
+\newlength{\globalNavHeight}
+\newlength{\grainHeaderBoxHeight}
+\newlength{\grainHeaderBoxY}
+\newlength{\topNavBarX}
+\newlength{\topNavBarY}
+\newlength{\topNavBarWidth}
+\newlength{\remainingWidth}
+
+%% Valeurs initiales des longueurs définies ci-dessus.
+%% Ces valeurs peuvent etre redéfinies dans le préambule.
+
+\textheightPolyScreen=12.2cm
+\textwidthPolyScreen=15.4cm
+\leftmarginPolyScreen=1cm
+\topmarginPolyScreen=1.7cm
+
+\globalNavWidth=17ex
+\globalNavHeight=5cm
+\setlength{\globalNavX}{\paperwidth-\leftmarginPolyScreen-\globalNavWidth}
+\globalNavY=0.8cm
+\grainHeaderBoxHeight=5em
+\setlength{\topNavBarWidth}{19cm+2ex}
+\headerwidth=\topNavBarWidth
+\setlength{\remainingWidth}{\topNavBarWidth-\textwidth}
+\setlength{\grainHeaderBoxY}{\paperheight-\headheight-\headsep-\topmargin-\grainHeaderBoxHeight}
+\setlength{\topNavBarX}{(\paperwidth-\topNavBarWidth)/2}
+\setlength{\navBox}{\topNavBarWidth/7}%
+
+\poly@newif{globalNavBoxRight}{True}
+\newcommand{\globalNavBoxLeft}{%
+   \globalNavBoxRightFalse%
+   \globalNavX=\leftmarginPolyScreen%
+   \setlength{\leftmarginPolyScreen}{\paperwidth-\textwidthPolyScreen-\leftmarginPolyScreen}%
+}
+
+\textheightSlideScreen=13.75cm
+\textwidthSlideScreen=19cm
+\leftmarginSlideScreen=1cm
+\topmarginSlideScreen=1cm
+
+\textheightEmptyScreen=13.75cm
+\textwidthEmptyScreen=19cm
+\leftmarginEmptyScreen=1cm
+\topmarginEmptyScreen=1cm
+
+% Les définitions des styles de page sont faites au début du
+% document, pour tenir compte éventuellement des paramètres
+% modifiés dans le préambule.
+
+\AtBeginDocument{% 
+ %
+ \def\poly@screen@extraCommands{%
+    \textheight=\textheightPolyScreen%
+    \textwidth=\textwidthPolyScreen%
+    \oddsidemargin=\leftmarginPolyScreen%
+    \ch@ngetext%
+    \topmargin=\topmarginPolyScreen%
+    \headsep=0pt%
+    \headheight=0pt%
+    \setlength{\topNavBarHeight}{3ex}%
+ }
+ %
+ \def\slide@screen@extraCommands{%
+    \textheight=\textheightSlideScreen%
+    \textwidth=\textwidthSlideScreen%
+    \oddsidemargin=\leftmarginSlideScreen%
+    \ch@ngetext%
+    \topmargin=\topmarginSlideScreen%
+    \headsep=0pt%
+    \headheight=0pt%
+ }
+ %
+ \def\empty@screen@extraCommands{%
+    \textheight=\textheightEmptyScreen%
+    \textwidth=\textwidthEmptyScreen%
+    \oddsidemargin=\leftmarginEmptyScreen%
+    \ch@ngetext%
+    \topmargin=\topmarginEmptyScreen%
+    \headsep=0pt%
+    \headheight=0pt%
+ }
+ %
+ %
+ % Fond de page (style "poly", option écran)
+ %
+ \add@box{poly@screen}{PageBox}{0cm}{0cm}{%
+   \ifthenelse{\equal{\backImg}{}}{%
+      \colorbox{backgroundColor}{%
+         \begin{minipage}[b][\paperheight][c]{\paperwidth}%
+         ~%
+         \end{minipage}%
+      }%
+   }{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{\backImg}%
+   }%
+   \gatherNavigationInfo%
+ }
+\add@box{slide@screen}{PageBox}{0cm}{0cm}{%
+   \ifthenelse{\equal{\backImg}{}}{%
+      \colorbox{backgroundColor}{%
+         \begin{minipage}[b][\paperheight][c]{\paperwidth}%
+         ~%
+         \end{minipage}%
+      }%
+   }{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{\backImg}%
+   }%
+   \gatherNavigationInfo%
+ }
+
+ %
+ % Fond de page (style "empty", option écran)
+ %
+ \add@box{empty@screen}{PageBox}{0cm}{0cm}{%
+   \ifthenelse{\equal{\backImg}{}}{%
+      \colorbox{backgroundColor}{%
+         \begin{minipage}[b][\paperheight][c]{\paperwidth}%
+         ~%
+         \end{minipage}%
+      }%
+   }{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{\backImg}%
+   }%
+ }
+ %
+ %  Boite contenant la boite du grain
+ %
+ \add@box{poly@screen}{grainBox}{\oddsidemargin-1ex}{\globalNavY}{%
+   \ifgrainStarted%
+   \begingroup%
+      \fboxsep 0pt%
+      \colorbox{grainBoxColor}{%
+         \begin{minipage}[b][\paperheight-\headsep-\headheight-\topmargin-\globalNavY][c]{\textwidth+2ex}%
+	 ~%
+	 \end{minipage}%
+      }%
+   \endgroup%
+   \fi%
+ }%
+ %
+ % Barre de navigation globale
+ %
+ \add@box@color{poly@screen}{globalNav}{\globalNavX}{\globalNavY}{globalNavBoxColor}{%
+   \begin{minipage}[b][\globalNavHeight][c]{\globalNavWidth}%
+   \mbox{}\vfill\centering\sffamily\footnotesize%
+   \iftableOfContentsTarget
+      \hyperlink{tableOfContents}{\contentsname}\\
+   \else
+      \textcolor{disabledLinkColor}{\contentsname}\\
+   \fi%
+   \ifaConceptExists
+      \hyperlink{concepts}{\conceptNames}\\%
+   \fi%
+   \ifaNotionExists
+      \hyperlink{notions}{\notionNames}\\%
+   \fi%
+   \ifaNameExists
+      \hyperlink{noms}{\nameNames}\\%
+   \fi%
+   \ifaReferenceExists
+      \hyperlink{biblio}{\bibname}\\%
+   \fi%
+   \vfill
+   \iflocalexampleTarget
+      \hyperlink{\localexampleTarget}{\exampleNames}\\
+   \else\ifglobalexampleTarget
+      \hyperlink{\globalexampleTarget}{\exampleNames}\\
+   \else
+      \textcolor{disabledLinkColor}{\exampleNames}\\
+   \fi\fi%
+   \iflocalexerciseTarget
+      \hyperlink{\localexerciseTarget}{\exerciseNames}\\
+   \else\ifglobalexerciseTarget
+      \hyperlink{\globalexerciseTarget}{\exerciseNames}\\
+   \else
+      \textcolor{disabledLinkColor}{\exerciseNames}\\
+   \fi\fi%
+   \iflocaldocumentTarget
+      \hyperlink{\localdocumentTarget}{\documentNames}\\
+   \else\ifglobaldocumentTarget
+      \hyperlink{\globaldocumentTarget}{\documentNames}\\
+   \else
+      \textcolor{disabledLinkColor}{\documentNames}\\
+   \fi\fi
+   \vfill\mbox{}%
+   \end{minipage}%
+ }%
+ %
+ % Barre de navigation contextuelle
+ %
+ \poly@newif{aNavLinkExists}{False}%
+ \newsavebox{\navBarULBox}
+ %
+ \add@box{poly@screen}{navBarUL}{\topNavBarX}{\paperheight-\topNavBarHeight-1cm+1ex}{%
+   \aNavLinkExistsFalse%
+   \begin{lrbox}{\navBarULBox}%
+   \small\vphantom{p}%
+   \makebox[\navBox]{\ifchapterMinus%
+      \sffamily\hyperlink{chapter@absolute.\arabic{chapter@absolute@minus}}{\btl \space précédent}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \makebox[\navBox]{\ifsectionMinus%
+      \sffamily\hyperlink{section@absolute.\arabic{section@absolute@minus}}{\btl \space section précédente}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \makebox[\navBox]{\ifgrainMinus%
+       \sffamily\hyperlink{grain@absolute.\arabic{grain@absolute@minus}}{\btl \space précédent}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \makebox[\navBox]{\ifsectionUp%
+       \sffamily\hyperlink{section@absolute.\arabic{section@absolute}}{section \utl}%
+       \aNavLinkExistsTrue%
+       \else\ifchapterUp%
+      \aNavLinkExistsTrue%
+       \sffamily\hyperlink{chapter@absolute.\arabic{chapter@absolute}}{chapitre \utl}%
+   \fi\fi}%
+   \makebox[\navBox]{\ifgrainPlus%
+       \sffamily\hyperlink{grain@absolute.\arabic{grain@absolute@plus}}{suivant \rtl}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \makebox[\navBox]{\ifsectionPlus%
+      \sffamily\hyperlink{section@absolute.\arabic{section@absolute@plus}}{section suivante \rtl}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \makebox[\navBox]{\ifchapterPlus%
+      \sffamily\hyperlink{chapter@absolute.\arabic{chapter@absolute@plus}}{suivant \rtl}%
+      \aNavLinkExistsTrue%
+   \fi}%
+   \end{lrbox}%
+   \ifaNavLinkExists%
+   \begingroup%
+      \fboxsep 0pt%
+      \colorbox{topNavBarColor}{\begin{minipage}[b][0.5cm][c]{\topNavBarWidth}%
+   		\usebox{\navBarULBox}%
+      \end{minipage}}%
+   \endgroup%
+   \fi%
+}
+
+
+\add@box{slide@screen}{navBarUL}{\topNavBarX}{0.5cm}{%
+ \begin{minipage}[b][0.5cm][c]{\topNavBarWidth}%
+ \vphantom{p}\ifgrainMinus%
+     \sffamily\hyperlink{grain@absolute.\arabic{grain@absolute@minus}}{\LARGE${\vartriangleleft}$}%
+     \aNavLinkExistsTrue%
+ \else\mbox{}\fi%
+ \hfill%
+ \ifgrainPlus%
+     \sffamily\hyperlink{grain@absolute.\arabic{grain@absolute@plus}}{\LARGE${\vartriangleright}$}%
+     \aNavLinkExistsTrue%
+ \else\mbox{}\fi%
+   \end{minipage}
+}
+ %
+ % Barre de navigation locale (dans un grain ou autre)
+ %
+ %
+ \poly@newif{aLocalNavLinkExists}{False}
+ %
+ \add@box{poly@screen}{NavBarBL}{\oddsidemargin-1ex}{\globalNavY}{%
+   \aLocalNavLinkExistsFalse%
+   \begin{lrbox}{\navBarBLBox}%
+      \begin{minipage}[b][0.5cm][c]{\textwidth+2ex}%
+         \ifpageMinus%
+            \makebox[0cm][l]{\hyperlink{page.\thepage@minus}{~\btl\btl}}%
+            \aLocalNavLinkExistsTrue%
+         \else%
+	    \mbox{}%t
+	 \fi%      
+         \hfill%
+	 {\pageNumberFont\thepage}%
+	 \hfill%      
+         \ifpagePlus%
+            \makebox[0cm][r]{\hyperlink{page.\thepage@plus}{\rtl\rtl~}}%
+            \aLocalNavLinkExistsTrue%
+         \else%
+	    \mbox{}%
+	 \fi%
+       \end{minipage}%
+   \end{lrbox}%
+   \ifaLocalNavLinkExists%
+      \begingroup\fboxsep 0pt%
+      \colorbox{bottomNavBarColor}{\usebox{\navBarBLBox}}%
+      \endgroup%
+   \else%
+      \usebox{\navBarBLBox}%
+   \fi
+ }
+ %
+ % Boite contenant le header du grain
+ %
+ \add@box{poly@screen}{grainHeaderBox}{\globalNavX}{\grainHeaderBoxY}{%
+   \ifgrainStarted%
+      \ifgrainHeaderInGrainBox%
+        \ifpageMinus% si on est sur une page > 1 du grain
+          \begin{minipage}[b][\grainHeaderBoxHeight][t]{\globalNavWidth}%
+            \raggedleft\grainHeaderFont\grain@header%
+          \end{minipage}%
+	\fi%
+      \else%
+        \begin{minipage}[b][\grainHeaderBoxHeight][t]{\globalNavWidth}%
+            \raggedleft\grainHeaderFont\grain@header%
+        \end{minipage}%
+      \fi%
+   \fi%
+ }%
+}
+
+%%
+%% Déclaration des styles de page pour l'option impression
+%%
+
+\new@poly@pagestyle{poly@print}
+\new@poly@pagestyle{slide@print}
+\new@poly@pagestyle{empty@print}
+
+%% Dimensions de la page pour le style de page polycopie/impression
+
+\newlength{\textheightPolyPrint}
+\newlength{\textwidthPolyPrint}
+\newlength{\evenleftmarginPolyPrint}
+\newlength{\oddleftmarginPolyPrint}
+\newlength{\topmarginPolyPrint}
+\newlength{\headheightPolyPrint}
+\newlength{\headsepPolyPrint}
+
+
+%% Dimensions de la page pour le style de page transparents/impression
+
+\newlength{\textheightSlidePrint}
+\newlength{\textwidthSlidePrint}
+\newlength{\leftmarginSlidePrint}
+\newlength{\topmarginSlidePrint}
+
+\newlength{\headerPolyPrintY}
+
+%% Valeurs initiales des longueurs définies ci-dessus.
+%% Ces valeurs peuvent etre redéfinies dans le préambule.
+
+\textheightPolyPrint=24cm
+\textwidthPolyPrint=15.8cm
+\evenleftmarginPolyPrint=2.8cm
+\oddleftmarginPolyPrint=2.45cm
+\topmarginPolyPrint=1.5cm
+\headheightPolyPrint=0.5cm
+\headsepPolyPrint=0.8cm
+
+
+\textheightSlidePrint=13.75cm
+\textwidthSlidePrint=19cm
+\leftmarginSlidePrint=1cm
+\topmarginSlidePrint=1cm
+
+
+\AtBeginDocument{%
+ %
+ \def\poly@print@extraCommands{%
+   \textheight=\textheightPolyPrint%
+   \textwidth=\textwidthPolyPrint%
+   \evensidemargin=\evenleftmarginPolyPrint%
+   \oddsidemargin=\oddleftmarginPolyPrint%
+   \ch@ngetext%
+   \topmargin=\topmarginPolyPrint%
+   \headheight=\headheightPolyPrint%
+   \headsep=\headsepPolyPrint%
+   \setlength{\headerPolyPrintY}{\paperheight-\topmarginPolyPrint-\headheightPolyPrint}
+ }%
+ %
+ \def\slide@print@extraCommands{%
+	\textheight=\textheightSlidePrint%
+    \textwidth=\textwidthSlidePrint%
+    \oddsidemargin=\leftmarginSlidePrint%
+    \ch@ngetext%
+    \topmargin=\topmarginSlidePrint%
+    \headsep=0pt%
+    \headheight=0pt% 
+ }
+ %
+ % Entete de page impaire poly, print
+ %
+ \add@box[odd]{poly@print}{oddHeader}{\oddleftmarginPolyPrint}{\headerPolyPrintY}{%
+   {\begin{minipage}[b][\headheight][c]{\textwidth}%
+      \usebox{\odd@mark}\hfill\pageNumberFont\thepage%
+   \end{minipage}}%
+ }
+ %
+ % Entete de page paire poly, print
+ %
+ \add@box[even]{poly@print}{evenHeader}{\evenleftmarginPolyPrint}{\headerPolyPrintY}{%
+   {\begin{minipage}[b][\headheight][c]{\textwidth}%
+      \pageNumberFont\thepage\hfill\usebox{\even@mark}%
+   \end{minipage}}%
+ }
+%
+%
+%
+%
+}
+
+%
+% Formatage dans le texte des appels d'index.
+%
+
+
+\newcommand{\indexedNotionFmt}[1]{%
+   \textbf{#1}%
+}
+
+\newcommand{\indexedNameFmt}[1]{%
+   \textbf{#1}%
+}
+
+%%%%%%%
+%
+% La bibliographie
+%
+%%%%%%%
+
+\renewenvironment{thebibliography}[1]{%
+		\ifPrint{}{\clearpage}
+      \chapterHeaderCommand{\bibname}%
+      \hypertarget{biblio}{\relax}%
+      \asuivreTrue%
+      \markboth{\bibname}{\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist%
+      \asuivreFalse%
+      }
+
+\AtEndDocument{%
+    \clearpage%
+}
+
+%%%
+%%% Choix du style de page initial
+%%%
+
+\AtBeginDocument{%
+   \iftransparent%
+      \ifprint%
+         \pagestyle{empty@print}%
+      \else%
+         \pagestyle{slide@screen}%
+      \fi%
+   \else%
+      \ifprint%
+         \pagestyle{poly@print}%
+      \else%
+         \pagestyle{poly@screen}%
+      \fi%
+   \fi% 
+}
+
+%%%
+%%% Macros relatives au mode "transparent"
+%%%
+
+\newcommand{\transparentgrainHeader}[4][@star]{%
+\ifthenelse{\equal{#2}{}}{}{
+\noindent\underline{\makebox[\textwidth]{{\chapterHeaderFont\scalefont{\slidesfontFactor}#2\vphantom{p} \hfill ~}}}}%
+\requireNewPageAfter}
+
+\newcommand{\transparentgrainTocCaption}[3][@star]{%
+   \ifthenelse{\equal{#1}{@star}}{%
+      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{#2}}%
+   }{%
+      \addcontentsline{toc}{\grain@section@name}{\tocFontCmd{\numberline{#1}#2}}%
+   }%
+}
+
+\newenvironment{transparentgrainBody}{%
+\scalefont{\slidesfontFactor}\fontFamily\par\noindent\ignorespaces%
+   \begin{list}{}{%
+      \setlength{\leftmargin}{0ex}%
+      \setlength{\rightmargin}{0ex}%
+   }%
+   \item[]%
+}{%
+   \end{list}
+}%   
+   
+\AtBeginDocument{%
+   \color{textColor}%
+}
+
+\let\mediumskip\medskip
+\let\noneskip\relax
+
+\newenvironment{figurebody}{}{}
+\newenvironment{par_justify}[1]{\par\csname#1skip\endcsname}{\par}
+\newenvironment{par_center}[1]{\par\csname#1skip\endcsname\begin{center}}{\end{center}}
+\newenvironment{par_flushleft}[1]{\par\csname#1skip\endcsname\begin{flushleft}}{\end{flushleft}}
+\newenvironment{par_flushright}[1]{\par\csname#1skip\endcsname\begin{flushright}}{\end{flushright}}
+\newenvironment{par_titled}[2]{\par\csname#1skip\endcsname\noindent{\bfseries#2\space:\space}}{\par}
+
+
+%%%%
+%%%% headers des théorèmes, etc.
+%%%%
+
+\newcommand{\preTheoremHeader}[3]{%
+}
+
+\newcommand{\postTheoremHeader}[3]{%
+	\ifPrint{%
+		\hrulefill\space\space\scriptsize\upshape\sffamily\proofname\space:\space \pageName\space\pageref*{#3},\space\documentName\space\ref*{#3}%
+	}{%
+		\textcolor{linkColor}{\hrulefill\space\space}\scriptsize\upshape\sffamily\hyperlink{#3}{\proofname}\par%
+	}%
+}
+
+
+\newenvironment{preface}{}{\bigskip}
+\newenvironment{postface}{\bigskip}{}
+
+\newcommand{\textemph}[1]{%
+	\iftransparent
+	\textcolor{green}{#1}%
+	\else
+	\textbf{#1}%
+	\fi
+}
+\newcommand{\textstrong}[1]{%
+	\iftransparent
+	\textcolor{yellow}{#1}%
+	\else
+	\textbf{#1}%
+	\fi
+}
+\newcommand{\textlang}[1]{%
+	\textit{#1}%
+}
+\renewcommand{\textnormal}[1]{%
+	\textup{#1}%
+}
+\newcommand{\textcode}[1]{%
+	\iftransparent
+	\textcolor{codeColor}{\texttt{#1}}%
+	\else
+	\texttt{#1}%
+	\fi	}
+
+%%%%% 
+
+
+\newenvironment{Abstract}%
+{\begin{list}{}{\labelwidth0pt\leftmargin 0.08\textwidth\rightmargin 0.08\textwidth}%
+\item[]%
+\bigskip\noindent{\bfseries \abstractName. }}{\end{list}\bigskip}
+
+\newenvironment{keywords}[1][french]%
+{\selectlanguage{#1}\begin{list}{}{\labelwidth0pt\leftmargin 0.08\textwidth\rightmargin 0.08\textwidth}%
+\item[]%
+\noindent{\bfseries \keywordsName. }}{\end{list}\select@language{french}\vskip-\baselineskip}
+
+\newenvironment{keyword}{}{,\space}
+\newenvironment{lastkeyword}{}{.}

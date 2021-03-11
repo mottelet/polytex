@@ -1,0 +1,18 @@
+
+Avant tout chose ouvrir le fichier polytex.macros
+et changer éventuellement les noms des différentes
+applications de visusalisation pour les fichiers
+dvi, ps et pdf.
+
+Pour installer ou mettre a jour le mode 
+"PolyTeX" dans les
+menus de "Nedit", il vous suffit de lancer nedit
+dans ce répertoire avec l'option -import :
+
+	\nedit -import polytex.macros
+
+puis dans le menu "Preferences" selectionner
+l'article "Save Defaults".
+
+
+Stéphane Mottelet, le 3/11/2000
