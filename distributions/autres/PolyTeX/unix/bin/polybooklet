@@ -1,4 +1,0 @@
-#!/bin/sh
-pdfbook --short-edge --outfile /dev/stdout $1.pdf | ps2pdf - $1_booklet.pdf
-
-
