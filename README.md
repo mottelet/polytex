@@ -31,7 +31,7 @@ sont au format PDF et peuvent être visionnés grace à Acrobat Reader.
 
 # Exemples
  
-Voici un exemple de document PolyTeX : cours.pdf
+Voici un exemple de document PolyTeX : [cours.pdf](http://www.utc.fr/~mottelet/polytex/cours.pdf)
 Voici un autre exemple intégrant du son et de la video (l'archive est à décompresser au préalable) : archive.zip
 
 # Documentation
