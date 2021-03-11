@@ -14,7 +14,7 @@ Stéphane Mottelet (UTC) : stephane dot mottelet at utc dot fr
 
 PolyTeX est actuellement maintenu par le dernier auteur de la liste !
 
-Pour voir quelques slides de présentation de PolyTeX, cliquer [ici](https://github.com/mottelet/polytex/blob/main/PolyTeX/presentation-polytex/presentation.pdf)
+Pour voir quelques slides de présentation de PolyTeX, cliquer [ici](https://github.com/mottelet/polytex/blob/main/presentation-polytex/presentation.pdf)
 
 # Comment fonctionne PolyTeX ?
  
