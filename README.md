@@ -7,10 +7,13 @@ interactifs (on peut ajouter des liens vers divers types de documents).
 
 Les auteurs sont, par ordre d'apparition dans le projet :
 
-Bruno Bachimont (INA/UTC)
+Bruno Bachimont (INA/UTC) (http://cahiers.gutenberg.eu.org/fitem?id=CG_1998___28-29_1_0)
+
 Nicolas Salzmann (UTC)
+
 Antoine Grall (UTT)
-Stéphane Mottelet (UTC) : stephane dot mottelet at utc dot fr
+
+Stéphane Mottelet (UTC) : (https://edutice.archives-ouvertes.fr/edutice-00000651)
 
 PolyTeX est actuellement maintenu par le dernier auteur de la liste !
 
@@ -30,17 +33,20 @@ sont au format PDF et peuvent être visionnés grace à Acrobat Reader.
 # Exemples
  
 Voici un exemple de document PolyTeX : [cours.pdf](http://www.utc.fr/~mottelet/polytex/cours.pdf)
+
 Voici un autre exemple intégrant du son et de la video (l'archive est à décompresser au préalable) : archive.zip
 
 # Documentation
  
 Manuel de PolyTeX (1.5 mis à pour la version 2.2).
+
 Version ecran : [Manuel-ecran.pdf](https://github.com/mottelet/polytex/blob/main/PolyTeX/doc/Manuel-ecran.pdf)
+
 Version papier : [Manuel.pdf](https://github.com/mottelet/polytex/blob/main/PolyTeX/doc/Manuel.pdf)
+
 Ce manuel est assez ancien et ne fait pas état de nouvelles possibilité de PolyTeX.
 
-Un tutoriel écrit par Johan Millaud
-Version ecran : [Installation et prise en main de PolyTeX](http://www.iutenligne.net/ressources/installation-et-prise-en-main-de-polytex.html)
+Un tutoriel écrit par Johan Millaud : [Installation et prise en main de PolyTeX](http://www.iutenligne.net/ressources/installation-et-prise-en-main-de-polytex.html)
 
 # Plate-forme supportées
 
@@ -67,10 +73,14 @@ Ecriture de nouveaux "thèmes" : la structure actuelle de PolyTeX permet de dév
 
 # Téléchargement
      
+[Unix/Linux/MacOS/Windows](https://github.com/mottelet/polytex/tree/main/distributions/autres)
+
 Nouveautés de la 2.58 : bug fix dans l'environnement hypertheoreme
+
 Nouveautés de la 2.57 : bug fix d'apparition d'un \nobreak avec TeXLive > 2018
+
 Nouveautés de la 2.56 : macros TeXShop pour MacOSX
+
 Nouveautés de la 2.55 : nouvelle option de style "corrige", qui permet d'obtenir un document contenant les exercices de cours avec leurs solutions ou aides. Voir les autres détails dans le fichier Readme.txt.
 
-[Unix/Linux/MacOS/Windows](https://github.com/mottelet/polytex/tree/main/distributions/autres)
 
