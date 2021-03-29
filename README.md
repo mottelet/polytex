@@ -73,7 +73,7 @@ Ecriture de nouveaux "thèmes" : la structure actuelle de PolyTeX permet de dév
 
 # Téléchargement
      
-[Unix/Linux/MacOS/Windows](https://github.com/mottelet/polytex/tree/main/distributions/autres)
+[Unix/Linux/MacOS/Windows](https://github.com/mottelet/polytex/releases)
 
 Nouveautés de la 2.58 : bug fix dans l'environnement hypertheoreme
 
