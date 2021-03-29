@@ -19,7 +19,7 @@ PolyTeX est actuellement maintenu par le dernier auteur de la liste !
 
 Pour voir quelques slides de présentation de PolyTeX, cliquer [ici](https://github.com/mottelet/polytex/blob/main/presentation-polytex/presentation.pdf)
 
-Téléchargement de la dernière version : [ici] (https://github.com/mottelet/polytex/releases/)
+Téléchargement de la dernière version : (https://github.com/mottelet/polytex/releases/)
 
 # Comment fonctionne PolyTeX ?
  
