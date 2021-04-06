@@ -10,19 +10,19 @@
 
 %% Jeu 24 sep 2020 12:27:45 CEST
 
-Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
+% Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 
 %% jeu jan 15 18:17:44 CET 2009
 %%
-%% Ajout de l'option de classe "corrige" pour générer, après une compilation
+%% Ajout de l'option de classe "corrige" pour gÃ©nÃ©rer, aprÃ¨s une compilation
 %% avec l'option "polycopie", les exercices de cours avec leurs solutions.
 %%
 
-%%% Commande de création d'un nouveau triplet \ifcmd \cmdTrue \cmdFalse.
-%%% Les définitions sont maintenant globales.
+%%% Commande de crÃ©ation d'un nouveau triplet \ifcmd \cmdTrue \cmdFalse.
+%%% Les dÃ©finitions sont maintenant globales.
 %%%
 %%% \poly@newif{cmd}{True} ou \poly@newif{cmd}{False} permet d'initialiser
-%%% le booleen \cmd à la valeur correspondante.
+%%% le booleen \cmd Ã  la valeur correspondante.
 
 \def\poly@newif#1#2{%
    \expandafter\newif\csname if#1\endcsname%
@@ -164,7 +164,7 @@ Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 \fi
 
 %---------------------------------------------------------------------------
-% Chargement préliminaire du thème (BootStrap)
+% Chargement prÃ©liminaire du thÃ¨me (BootStrap)
 %---------------------------------------------------------------------------
 
 \ThemeBootStrapTrue
@@ -205,7 +205,7 @@ Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 \RequirePackage{tabularx}
 \RequirePackage[section]{placeins}
 
-%% Chemin par défaut pour les figures
+%% Chemin par dÃ©faut pour les figures
 
 \ifmacintosh
    \graphicspath{{:figures:}}
@@ -214,7 +214,7 @@ Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 \fi
 
 %
-% Choix du type de support, polycopié ou transparent
+% Choix du type de support, polycopiÃ© ou transparent
 %
 
 \iftransparent
@@ -228,7 +228,7 @@ Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 \fi
 
 %---------------------------------------------------------------------------
-% Chargement final du thème
+% Chargement final du thÃ¨me
 %---------------------------------------------------------------------------
 
 \ThemeBootStrapFalse
