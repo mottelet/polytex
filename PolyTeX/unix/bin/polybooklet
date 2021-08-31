@@ -1,3 +1,3 @@
 #!/bin/sh
-pdfbook2 --short-edge $1.pdf
+pdfbook2 --no-crop --short-edge $1.pdf
 mv $1-book.pdf $1_booklet.pdf
