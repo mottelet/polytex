@@ -7,7 +7,7 @@ interactifs (on peut ajouter des liens vers divers types de documents).
 
 Les auteurs sont, par ordre d'apparition dans le projet :
 
-Bruno Bachimont (INA/UTC) (http://cahiers.gutenberg.eu.org/fitem?id=CG_1998___28-29_1_0)
+Bruno Bachimont (INA/UTC) ([[http://cahiers.gutenberg.eu.org/fitem?id=CG_1998___28-29_1_0](https://www.numdam.org/item/CG_1998___28-29_1_0](https://www.numdam.org/item/CG_1998___28-29_1_0/))
 
 Nicolas Salzmann (UTC)
 
