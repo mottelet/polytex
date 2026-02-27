@@ -35,7 +35,7 @@
 \RequirePackage{amsmath,amsfonts,amsbsy}
 
 %\RequirePackage[cm]{aeguill}
-\RequirePackage[english,frenchb]{babel}
+\RequirePackage[english,french]{babel}
 
 \poly@newif{macintosh}{False}
 
