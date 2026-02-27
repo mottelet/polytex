@@ -4,15 +4,18 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{polytex}[2020/09/24]
+\ProvidesClass{polytex}[2026/02/27]
 
-\def\fileversion{2.58}
+\def\fileversion{2.59}
 
+%% Fri Feb 27 19:04:14 CET 2026
+%%
+%% replace babel option frenchb by french in order to make PolyteX work
+%% in TeXLive 2025
+%%
 %% Jeu 24 sep 2020 12:27:45 CEST
-
-% Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
-
-%% jeu jan 15 18:17:44 CET 2009
+%%
+%% Bugfix dans polyTheorem.sty (merci a Vincent Martin !)
 %%
 %% Ajout de l'option de classe "corrige" pour générer, après une compilation
 %% avec l'option "polycopie", les exercices de cours avec leurs solutions.
