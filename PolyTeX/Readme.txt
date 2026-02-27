@@ -6,13 +6,19 @@ disponible sur le site officiel https://github.com/mottelet/polytex
 
 Historique des versions : 
 
+Distribution polytex2.59  pour teTex/unix ou MikTeX/windows
+---------------------------------------------------------
+
+(ven. 27 févr. 2026 19:04:09 CEST)
+
+Remplacement de l'option "frenchb" du package babel (obosolete) par "french"
+
 Distribution polytex2.58  pour teTex/unix ou MikTeX/windows
 ---------------------------------------------------------
 
 (Jeu 24 sep 2020 12:25:01 CEST)
 
 Bugfix dans polyTheorem.sty pour l'environnement hypertheoreme et autres (lien vers la demo casse)
-
 
 Distribution polytex2.57  pour teTex/unix ou MikTeX/windows
 ---------------------------------------------------------
